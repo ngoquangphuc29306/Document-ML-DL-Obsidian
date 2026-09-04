@@ -45,7 +45,7 @@ Mỗi biến thể được thiết kế dựa trên bản chất phân bố d�
 * **Công thức Likelihood:**
   $$P(x_i \mid y) = \frac{1}{\sqrt{2\pi\sigma_y^2}} \exp\left( -\frac{(x_i - \mu_y)^2}{2\sigma_y^2} \right)$$
   *(Trong đó $\mu_y$ và $\sigma_y^2$ là trung bình và phương sai của đặc trưng $x_i$ thuộc lớp $y$)*
-![[Pasted image 20260722091405.png|697]]
+![Pasted image 20260722091405](../../../05_Assets/Images/Pasted%20image%2020260722091405.png)
 - **Code Python:**
 ```python
 import pandas as pd

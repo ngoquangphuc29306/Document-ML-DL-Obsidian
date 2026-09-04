@@ -9,10 +9,10 @@ tags: [preprocessing, nlp, bag-of-words, tf-idf, n-grams]
 
 ## Token-level Tokenization:
 - Squence Labeling: Word Segmentation, Part Of Speech Tagging (POS), Named Entity Recognition (NER).
-![[Pasted image 20260807211921.png]]
+![Pasted image 20260807211921](../../../05_Assets/Images/Pasted%20image%2020260807211921.png)
 
 ## Document-level Tokenization
-![[Pasted image 20260807211957.png]]
+![Pasted image 20260807211957](../../../05_Assets/Images/Pasted%20image%2020260807211957.png)
 
 ## Basic Pipeline
 
@@ -41,26 +41,26 @@ Dataset -> Preprocessing and EDA -> Representation -> Modeling -> Evaluation
 - URLs: imgae links, reference links,...
 - HTML tags: p, div, ....
 
-![[Pasted image 20260807214035.png]]
+![Pasted image 20260807214035](../../../05_Assets/Images/Pasted%20image%2020260807214035.png)
 ### Text Standardizing
 - Lowercasing: Use lower() function in Python
 - Using short words and abbreviations to represent the same meaning
 - Contrastions: I'm, isn't, can't, ....
-![[Pasted image 20260807215708.png]]
+![Pasted image 20260807215708](../../../05_Assets/Images/Pasted%20image%2020260807215708.png)
 ### Number and Punctuation Handling
 - Removal: Text Classification
 - As token: Machine Translation, POS tagging, Named Entity Recognition
-![[Pasted image 20260807215802.png]]![[Pasted image 20260807215810.png]]
+![Pasted image 20260807215802](../../../05_Assets/Images/Pasted%20image%2020260807215802.png)![Pasted image 20260807215810](../../../05_Assets/Images/Pasted%20image%2020260807215810.png)
 ### Stop/ Rare Words Handling
 - Focus on the importance keywords
 - Stop words: Common words - no meaning or less meaning compared to keywords
 	- English: a, an, that, for,...
 	- Vietnamese: à, ừ, vậy, thế,...
 - Rare words: words that appear only a few times in corpus
-![[Pasted image 20260807215956.png]]
+![Pasted image 20260807215956](../../../05_Assets/Images/Pasted%20image%2020260807215956.png)
 
 ### Emoji and Emoticons Handling
-![[Pasted image 20260807220022.png]]
+![Pasted image 20260807220022](../../../05_Assets/Images/Pasted%20image%2020260807220022.png)
 ### Steamming and Lemmatization
 #### Lemmatization
 - Từ có cùng một ngữ nghĩa nhưng hình thái khác nhau $\rightarrow$ chuyển về chung dạng
@@ -72,37 +72,37 @@ Dataset -> Preprocessing and EDA -> Representation -> Modeling -> Evaluation
 		- Stems: The core meaning-bearing units
 		- Affixes: Parts that adhere to stems, often with grammatical functions
 	- Morphological Parsers:
-		![[Pasted image 20260807220515.png]]
+		![Pasted image 20260807220515](../../../05_Assets/Images/Pasted%20image%2020260807220515.png)
 #### Stemming
 - Stemming - Simple Lemmatization
 	- Naive version of morphological analysis
 	- Chopping of words-final stemming affixes
-	![[Pasted image 20260807220618.png]]
+	![Pasted image 20260807220618](../../../05_Assets/Images/Pasted%20image%2020260807220618.png)
 
 ### Tokenization
 - Split paragraph, document into sentences
 - Use RegEx or library: nltk, genism, ...
 	-  nltk.sent_tokenize() $\rightarrow$  dựa vào dấu câu để tách
-	- ![[Pasted image 20260807221013.png]]
+	- ![Pasted image 20260807221013](../../../05_Assets/Images/Pasted%20image%2020260807221013.png)
 	- nltk.word_tokenize() $\rightarrow$ tách theo từ
-	- ![[Pasted image 20260807221020.png]]
+	- ![Pasted image 20260807221020](../../../05_Assets/Images/Pasted%20image%2020260807221020.png)
 - Các cách tách:
 	- Word level : nhược điểm từ điển lớn
 	- Char level : nhược điểm sẽ tạo một vector dài
 	- Sub-word level: khắc phục nhược điểm của hai phương pháp trên.
-![[Pasted image 20260807221117.png]]
+![Pasted image 20260807221117](../../../05_Assets/Images/Pasted%20image%2020260807221117.png)
 
 # 3. Text Representation
 ## Numeric Representation
-![[Pasted image 20260807221302.png]]
+![Pasted image 20260807221302](../../../05_Assets/Images/Pasted%20image%2020260807221302.png)
 
 ## One-hot Encoding
 - Token-level
 - Represented by a V-dimensional binary vector of 0s and 1s
 	- All 0s barring the index, $index = w_{id}$
 	- At this index, put 1
-	![[Pasted image 20260807221431.png]]
-	![[Pasted image 20260807221449.png]]
+	![Pasted image 20260807221431](../../../05_Assets/Images/Pasted%20image%2020260807221431.png)
+	![Pasted image 20260807221449](../../../05_Assets/Images/Pasted%20image%2020260807221449.png)
 
 ## Bag of Word (BoW)
 - Document-Level: Consider text as a bag (collection) of words
@@ -112,8 +112,8 @@ Dataset -> Preprocessing and EDA -> Representation -> Modeling -> Evaluation
 	- Không xem xét thứ tự của các từ trong câu, làm sai lệch ý nghĩa của văn bản
 	- Chống lại cấu trúc ngữ pháp
 	- Chống lại tính đa dạng
-![[Pasted image 20260807221646.png]]
-![[Pasted image 20260807221654.png]]
+![Pasted image 20260807221646](../../../05_Assets/Images/Pasted%20image%2020260807221646.png)
+![Pasted image 20260807221654](../../../05_Assets/Images/Pasted%20image%2020260807221654.png)
 
 
 ## TF-IDF
@@ -123,7 +123,7 @@ $$tf_{t,d} = count(t, d)$$
 	$$tf_{t,d} = \log(count(t,d) + 1)$$
 	- Divide the number of occurrences by the length of document:
 	$$tf_{t,d} = \frac{count(t,d)}{len(d)}$$
-	![[Pasted image 20260807222230.png]]
+	![Pasted image 20260807222230](../../../05_Assets/Images/Pasted%20image%2020260807222230.png)
 
 $$idf_i = \frac{N}{df_t}$$
 - Measures the importane of the word across a corpus

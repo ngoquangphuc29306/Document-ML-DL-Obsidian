@@ -9,7 +9,7 @@ created: 2026-07-20
 
 ## 1. Bản chất của hai hiện tượng
 
-![[Pasted image 20260721095208.png]]
+![Pasted image 20260721095208](../../../05_Assets/Images/Pasted%20image%2020260721095208.png)
 
 ### Underfitting 
 *   **Hiện tượng:** Mô hình quá đơn giản, không học được cấu trúc của dữ liệu nền tảng.
@@ -19,7 +19,7 @@ created: 2026-07-20
 ### Overfitting 
 *   **Hiện tượng:** Mô hình quá phức tạp, nó học thuộc lòng luôn cả những "nhiễu" (noise) và chi tiết thừa trong tập Train.
 *   **Biểu hiện:** Lỗi rất thấp trên tập Train ([[Bias-Variance Tradeoff|Low Bias]]) nhưng lỗi lại cực kỳ cao khi gặp dữ liệu mới ở tập Test ([[Bias-Variance Tradeoff|High Variance]]). Mô hình mất đi khả năng **Khái quát hóa (Generalization)**.
-![[Pasted image 20260721095112.png|1000]]
+![Pasted image 20260721095112](../../../05_Assets/Images/Pasted%20image%2020260721095112.png)
 
 ---
 

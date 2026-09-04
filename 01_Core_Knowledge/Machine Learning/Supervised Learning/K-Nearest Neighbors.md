@@ -17,7 +17,7 @@ created: 2026-07-20
 *   **Lazy Learning / Instance-based Learning (Học lười):** Không có quá trình huấn luyện tường minh để tối ưu tham số. Nó chỉ đơn thuần là ghi nhớ toàn bộ dữ liệu huấn luyện. Khi có dữ liệu mới cần dự đoán, nó mới bắt đầu tính toán khoảng cách để đưa ra kết quả.
 
 KNN có thể áp dụng cho cả hai bài toán: [[Types of Machine Learning|Classification]] và [[Types of Machine Learning|Regression]].
-![[LazyLearning|1000]]
+![LazyLearning](../../../05_Assets/Excalidraw/LazyLearning.excalidraw.md)
 
 ---
 
@@ -280,11 +280,11 @@ Chi tiết định nghĩa, công thức và bài toán áp dụng của từng c
 *   [[Evaluation Metrics#Recall Sensitivity Độ phủ Tỷ lệ tìm sót|Recall]]
 *   [[Evaluation Metrics#F1-Score|F1-Score]]
 
-![[Pasted image 20260720203856.png|697]]
+![Pasted image 20260720203856](../../../05_Assets/Images/Pasted%20image%2020260720203856.png)
 
-![[Pasted image 20260721072800.png]]
+![Pasted image 20260721072800](../../../05_Assets/Images/Pasted%20image%2020260721072800.png)
 
-![[Pasted image 20260721072818.png]]
+![Pasted image 20260721072818](../../../05_Assets/Images/Pasted%20image%2020260721072818.png)
 
 ---
 

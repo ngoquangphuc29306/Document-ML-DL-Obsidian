@@ -21,7 +21,7 @@ date: 2026-07-23
 - Từ Dataset gốc, chia thành nhiều tập con thông qua phương pháp lấy mẫu ngẫu nhiên có hoàn lại (Sampling with replacement). Các tập con gọi là **Bootstrap dataset**.
 - Huấn luyện **song song** các mô hình base trên từng bootstrap dataset.
 - Khi lấy mẫu thì trung bình mỗi mẫu bootstrap sẽ chưa khoảng 63.2% các điểm dữ liệu duy nhất từ tập gốc. Những điểm không được chọn được gọi là **Out-of-Bag (OOB)** và rất hữu ích để đánh giá mô hình sau này.
-![[Pasted image 20260723210554.png|1000]]
+![Pasted image 20260723210554](../../../05_Assets/Images/Pasted%20image%2020260723210554.png)
 ### B. Boosting
 
 - Là một kĩ thuật học máy thuộc **ensemble learning**, nơi ta kết hợp nhiều **weak leaner**, một cách tuần tự để hình thành một **strong learner**. Cách ghép nối này giúp giảm sai số dự đoán và cải thiện khả năng tổng quát hóa vì mỗi bước bổ sung đều được thiết kế để đưa tổ hợp tiến gần đến lời giải đúng.
@@ -33,4 +33,4 @@ date: 2026-07-23
   <img src="Pasted image 20260724201932.png" width="500">
 </div>
 ### C. Stacking
-![[Pasted image 20260723210658.png]]
+![Pasted image 20260723210658](../../../05_Assets/Images/Pasted%20image%2020260723210658.png)

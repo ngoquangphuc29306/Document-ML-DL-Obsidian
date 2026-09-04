@@ -8,7 +8,7 @@ created: 2026-07-20
 # Machine Learning Workflow
 
 Một dự án [[Machine Learning Overview]] thành công trong thực tế không chỉ có code thuật toán, mà nó tuân theo một quy trình chuẩn gồm các bước nghiêm ngặt sau:
-![[Pasted image 20260720235731.png]]
+![Pasted image 20260720235731](../../../05_Assets/Images/Pasted%20image%2020260720235731.png)
 ## 1. Các bước trong Workflow
 
 ### Bước 1: Data Collection (Thu thập dữ liệu)

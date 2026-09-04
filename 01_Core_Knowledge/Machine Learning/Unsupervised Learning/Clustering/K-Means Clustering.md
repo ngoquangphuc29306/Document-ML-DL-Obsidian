@@ -47,7 +47,7 @@ Quy trình hoạt động cơ bản của K-Means gồm **4 bước cốt lõi**
 ### Step 4: Lặp lại cho đến khi hội tụ (Repeat until Convergence)
 * Quay lại **Step 2**, lặp lại quá trình gán cụm và cập nhật tâm cho đến khi thuật toán **hội tụ (converge)**.
 * **Dấu hiệu hội tụ**: Vị trí các $centroids$ không còn thay đổi (hoặc sự thay đổi nhỏ hơn một ngưỡng $\epsilon$ cho trước).
-![[K-MeanWork.excalidraw|1000]]
+![K-MeanWork](../../../../05_Assets/Excalidraw/K-MeanWork.excalidraw.md)
 ---
 
 ## 3. Data Normalization (Tiền xử lý)

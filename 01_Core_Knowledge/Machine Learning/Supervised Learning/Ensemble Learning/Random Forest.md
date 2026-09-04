@@ -20,7 +20,7 @@ $$
 m \le p.
 $$
 Hai cơ chế này giúp các cây ít tương quan hơn, từ đó làm giảm variance của mô hình tổng hợp.
-![[Pasted image 20260723210745.png|1000]]
+![Pasted image 20260723210745](../../../../05_Assets/Images/Pasted%20image%2020260723210745.png)
 
 ---
 ## 2. Cách Xây Dựng Random Forest (Classification & Regression)
@@ -178,7 +178,7 @@ plt.show()
 
 Random Forest có thuật toán xử lý dữ liệu khuyết vô cùng mạnh mẽ dựa trên **Proximity Matrix (Ma trận độ tương đồng)**.
 
-![[Pasted image 20260723210958.png]]
+![Pasted image 20260723210958](../../../../05_Assets/Images/Pasted%20image%2020260723210958.png)
 
 ### Các bước xử lý Missing Value.
 #### Bước 1: Guessing the data

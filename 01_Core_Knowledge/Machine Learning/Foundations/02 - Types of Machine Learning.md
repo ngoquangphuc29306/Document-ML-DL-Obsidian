@@ -17,7 +17,7 @@ Học máy thường được chia thành 4 nhóm chính dựa trên cách thứ
 *   **Hai bài toán chính:**
     *   **Regression (Hồi quy):** Đầu ra là một giá trị liên tục (Ví dụ: Dự báo giá nhà, dự báo nhiệt độ).
     *   **Classification (Phân loại):** Đầu ra là các nhãn rời rạc (Ví dụ: Nhận diện ảnh Chó/Mèo, phân lọc Email Spam).
-![[Classification.excalidraw|1000]]
+![Classification](../../../05_Assets/Excalidraw/Classification.excalidraw.md)
 ### 1.1 Regression
 Đối với một bài toán hồi quy, dữ liệu huấn luyện $\mathcal{D}_n$ có dạng một tập hợp gồm n cặp:
 

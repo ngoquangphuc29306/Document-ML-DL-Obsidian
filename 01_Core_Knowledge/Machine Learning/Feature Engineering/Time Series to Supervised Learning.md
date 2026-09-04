@@ -31,7 +31,7 @@ $$\hat{y}_t = f(x_{t-1}, x_{t-2}, \dots, x_{t-K})$$
 * $K$: Kích thước cửa sổ quan sát (Window size).
 
 #### Minh họa Biến đổi Dữ liệu:
-![[Pasted image 20260723222634.png]]
+![Pasted image 20260723222634](../../../05_Assets/Images/Pasted%20image%2020260723222634.png)
 #### Code Python
 ```python
 from pandas import DataFrame
@@ -103,4 +103,4 @@ Nếu áp dụng cho Time Series:
 
 ### Walk-Forward Validation chia làm 2 loại:
 
-![[Pasted image 20260723222743.png]]
+![Pasted image 20260723222743](../../../05_Assets/Images/Pasted%20image%2020260723222743.png)

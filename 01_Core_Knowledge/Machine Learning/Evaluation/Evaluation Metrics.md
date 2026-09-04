@@ -15,7 +15,7 @@ Khi hoàn thành bước `Model Training` trong [[Machine Learning Workflow]], t
 * **FP (False Positive):** Thực tế Sai, nhưng Model đoán Đúng (Sai lầm loại I).
 * **FN (False Negative):** Thực tế Đúng, nhưng Model đoán Sai (Sai lầm loại II).
 
-![[Pasted image 20260720234501.png]]
+![Pasted image 20260720234501](../../../05_Assets/Images/Pasted%20image%2020260720234501.png)
 ### Các chỉ số cơ bản:
 
 ### Accuracy (Độ chính xác tổng quan)

@@ -406,7 +406,7 @@ với:
 - input: `Height`, `Favorite Color`, `Gender`;
 - target: residual $r_{i1}$.
 
-![[Drawing 2026-07-25 22.15.34.excalidraw|1000]]
+![Drawing 2026-07-25 22.15.34](../../../../05_Assets/Excalidraw/Drawing%202026-07-25%2022.15.34.excalidraw.md)
 
 Ý nghĩa:
 

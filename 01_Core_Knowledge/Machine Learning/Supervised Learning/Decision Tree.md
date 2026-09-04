@@ -25,7 +25,7 @@ created: 2026-07-21
 * **Leaf Node / Terminal Node (Nút lá):** Nút cuối cùng biểu diễn kết quả dự đoán (outcomes/classes).
 * **Splitting:** Quá trình chia một node cha thành 2 hoặc nhiều node con.
 * **Pruning:** Quá trình tỉa bớt (xóa) các nhánh từ cây để tránh hiện tượng [[Overfitting vs Underfitting|Overfitting]].
-![[Pasted image 20260721111640.png]]
+![Pasted image 20260721111640](../../../05_Assets/Images/Pasted%20image%2020260721111640.png)
 ---
 
 # <font color = "red">Classification in Decision Tree</font>
@@ -109,7 +109,7 @@ Khi gặp đặc trưng dạng số, ta thực hiện các bước sau:
 2. **Tính giá trị trung bình (Average)** của các cặp điểm liên tiếp để làm các điểm ngưỡng **Threshold** tiềm năng.
 
 Các điểm Threshold cho `Age`:
-![[Pasted image 20260721112830.png]]
+![Pasted image 20260721112830](../../../05_Assets/Images/Pasted%20image%2020260721112830.png)
 ##### Tính Gini cho từng Threshold:
 * **Thử $Age < 9.5$:**
   * True (1 mẫu: `No`=1, `Yes`=0) $\rightarrow Gini = 0$
@@ -141,16 +141,16 @@ Các điểm Threshold cho `Age`:
   * Nhận sự kiện có $P = 0.9 \Rightarrow Surprise = -\log_2(0.9) \approx 0.15$ (Không bất ngờ).
   * Nhận sự kiện có $P = 0.1 \Rightarrow Surprise = -\log_2(0.1) \approx 3.32$ (Rất bất ngờ!).
   * Nhận sự kiện có $P = 0 \Rightarrow Surprise = -\log_2(0) \rightarrow +\infty$ (Không bất ngờ). 
-![[SurpriseProbability.excalidraw|1000]]
+![SurpriseProbability](../../../05_Assets/Excalidraw/SurpriseProbability.excalidraw.md)
 * **Entropy (total suprise):** là mức độ lẫn lộn hoặc không chắc chắc (uncertainly) của node.
 
 $$Entropy(S) = -\sum_{i=1}^{K} p_i \cdot \log_2(p_i)$$
 
 * **Với Binary Classification ($n=2$):** $Entropy_{\max} = 1$ khi $p = 0.5$.
-![[Pasted image 20260721113739.png]]
+![Pasted image 20260721113739](../../../05_Assets/Images/Pasted%20image%2020260721113739.png)
 * **Với $n$ class bất kỳ:**
   $$Entropy_{\max} = - \sum_{i=1}^{n} \frac{1}{n} \log_2\left(\frac{1}{n}\right) = -\log_2\left(\frac{1}{n}\right)$$
-![[Pasted image 20260721114649.png]]
+![Pasted image 20260721114649](../../../05_Assets/Images/Pasted%20image%2020260721114649.png)
 ---
 
 #### Information Gain (IG - Độ lợi thông tin):
@@ -163,7 +163,7 @@ $$IG(S, F) = Entropy(S) - \sum_{v \in Values(F)} \frac{|S_v|}{|S|} \cdot Entropy
 ---
 
 #### Ví dụ tính toán Information Gain trên Dataset:
-![[IG_1.excalidraw|500]] ![[IG_2.excalidraw|500]]
+![IG_1](../../../05_Assets/Excalidraw/IG_1.excalidraw.md) ![IG_2](../../../05_Assets/Excalidraw/IG_2.excalidraw.md)
 1. **Entropy tại Node Cha (Entire Population $S$):**
    * Tập $S$ gồm 3 `Yes` và 4 `No`.
    $$Entropy(S) = -\frac{3}{7} \log_2\left(\frac{3}{7}\right) - \frac{4}{7} \log_2\left(\frac{4}{7}\right) = 0.985$$
@@ -470,7 +470,7 @@ $$R_\alpha(T) = R(T) + \alpha \cdot |T|$$
    * **Classification:** Đo tỷ lệ lỗi phân loại (Validation Classification Error).
    * **Regression:** Đo tổng bình phương phần dư (Validation SSR / MSE).
 1. Chọn $\alpha_{opt}$ có lỗi Validation trung bình thấp nhất để tiến hành tỉa cây chính thức.
-![[Pasted image 20260721205911.png]]
+![Pasted image 20260721205911](../../../05_Assets/Images/Pasted%20image%2020260721205911.png)
 
 #### Python Code:
 ```python

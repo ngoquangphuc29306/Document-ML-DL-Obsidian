@@ -29,7 +29,7 @@ Trong quy trình [[Machine Learning Workflow#Bước 4 Data Splitting Chia dữ 
    * Tại mỗi lần lặp $i$, lấy **Fold thứ $i$** làm tập **Validation** (dùng để kiểm thử).
    * $K-1$ Folds còn lại kết hợp thành tập **Train** (dùng để huấn luyện mô hình).
 1. Sau $K$ lần lặp, tính giá trị trung bình (Mean) và độ lệch chuẩn (Standard Deviation) của chỉ số đánh giá (như Accuracy, F1-score từ [[Evaluation Metrics]]) qua $K$ lần chạy.
-![[Pasted image 20260721102300.png]]
+![Pasted image 20260721102300](../../../05_Assets/Images/Pasted%20image%2020260721102300.png)
 * **Giá trị $K$ thường chọn:** $K = 5$ hoặc $K = 10$ (giúp cân bằng tốt giữa thời gian tính toán và độ lệch [[Bias-Variance Tradeoff|Bias-Variance]]). 
 --- 
 ### 2.2. Stratified K-Fold Cross-Validation (Dành cho Dữ liệu Mất Cân Bằng) 
@@ -56,5 +56,5 @@ Nếu áp dụng cho Time Series:
 
 #### Walk-Forward Validation chia làm 2 loại:
 
-![[Pasted image 20260723222743.png]]
+![Pasted image 20260723222743](../../../05_Assets/Images/Pasted%20image%2020260723222743.png)
 --- 

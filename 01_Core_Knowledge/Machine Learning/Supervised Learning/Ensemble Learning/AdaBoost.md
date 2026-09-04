@@ -15,7 +15,7 @@ created: 2026-07-24
 - **Học từ sai lầm (Adaptive):** Thuật toán hoạt động theo chuỗi nối tiếp qua các vòng lặp. Sau mỗi vòng, AdaBoost điều chỉnh **trọng số mẫu (`sample weight`)** — tức mức độ ưu tiên của từng điểm dữ liệu trong huấn luyện.
 * **Tăng trọng số dữ liệu khó:** Các điểm dữ liệu bị phân loại sai hoặc có sai số lớn sẽ được **tăng trọng số**, buộc mô hình yếu (**weak learner**) ở vòng tiếp theo phải chú trọng nhiều hơn vào khu vực khó này.
 * **Kết hợp có trọng số:** Tất cả các weak learners được gộp lại bằng phép cộng có trọng số (với hệ số ảnh hưởng `amount of say` khác nhau), tạo nên một mô hình mạnh (**strong learner**) có độ chính xác vượt trội.
-![[Pasted image 20260724204915.png]]
+![Pasted image 20260724204915](../../../../05_Assets/Images/Pasted%20image%2020260724204915.png)
 
 ### Decision Stump
 Trong thực tế, weak learner thường được chọn là **Decision Stump** (Gốc cây quyết định / Cây quyết định độ sâu 1):
@@ -50,7 +50,7 @@ Trong thực tế, weak learner thường được chọn là **Decision Stump**
 ### 2.1. Phát biểu bài toán
 Cho tập dữ liệu $\mathcal{D} = \{(x_i, y_i)\}_{i=1}^N$ với $x_i \in \mathbb{R}^n, y_i \in \{-1, +1\}$. Mục tiêu là học một tổ hợp tuyến tính các weak learners $h_m: \mathbb{R}^n\rightarrow\{-1, +1\}$ theo dạng cộng dồn:
 $$F_m(x) = \sum_{t=1}^m \alpha_t h_t(x)$$
-![[Pasted image 20260724210606.png]]
+![Pasted image 20260724210606](../../../../05_Assets/Images/Pasted%20image%2020260724210606.png)
 
 ### 2.2. Thuật toán chi tiết
 #### **Bước 1: Khởi tạo**
@@ -103,7 +103,7 @@ Trong đó:
 * $Z_m = \sum_{j=1}^N w_j^{(m)} \exp\left( -\alpha_m y_j h_m(x_j) \right)$: hằng số chuẩn hoá.
 
 Sau khi chuẩn hoá để $\sum_i w_i^{(m+1)} = 1$, quy tắc cập nhật có ý nghĩa như sau: các mẫu được phân loại **đúng** ở vòng $m$ sẽ bị **giảm** trọng số, còn các mẫu bị phân loại **sai** sẽ được **tăng** trọng số. Nhờ đó, ở vòng kế tiếp weak classifier buộc phải chú ý nhiều hơn đến những điểm "khó".
-![[Pasted image 20260724215543.png]]
+![Pasted image 20260724215543](../../../../05_Assets/Images/Pasted%20image%2020260724215543.png)
 
 ---
 #### Bước 3: Dự đoán cuối
@@ -611,6 +611,6 @@ Việc sử dụng weighted median giúp AdaBoost.R2 ít bị ảnh hưởng b�
 * **Hiệu năng giảm trên dữ liệu mất cân bằng:** Nếu tập dữ liệu bị lệch lớp nghiêm trọng, thuật toán có thể quá tập trung vào lớp yếu số lượng ít mà bỏ qua tổng thể.
 * **Phụ thuộc vào chất lượng mô hình cơ sở:** Nếu các mô hình yếu quá kém (độ chính xác dưới 50%) hoặc quá phức tạp (dễ bị overfit ngay từ đầu), AdaBoost sẽ không đạt được hiệu quả tối ưu.
 
-![[Pasted image 20260724223310.png]]
+![Pasted image 20260724223310](../../../../05_Assets/Images/Pasted%20image%2020260724223310.png)
 
-![[Pasted image 20260724235307.png]]
+![Pasted image 20260724235307](../../../../05_Assets/Images/Pasted%20image%2020260724235307.png)

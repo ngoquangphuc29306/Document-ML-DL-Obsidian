@@ -24,6 +24,8 @@ $$\hat{y} = wx + b$$
 *   **$b$ (Bias/Intercept):** Điểm cắt trục tung, độ lệch của đường thẳng.
 *   **$x$:** Đặc trưng đầu vào.
 
+![Pasted image 20260829144707](../../../05_Assets/Images/Pasted%20image%2020260829144707.png)
+
 ### 1.2. Hồi Quy Tuyến Tính Đa Biến & Vector Hóa (Multivariate & Vectorization)
 Dự đoán đầu ra dựa trên nhiều đặc trưng, được biểu diễn dưới dạng đại số tuyến tính để tối ưu hóa hiệu suất tính toán.
 
@@ -45,9 +47,11 @@ Hàm mất mát đo lường mức độ sai lệch giữa dự đoán ($\hat{y}
 
 ### 2.1. Mean Squared Error (MSE / Squared Loss)
 Đo lường trung bình bình phương sai số.
-*   **Công thức (1 mẫu):** $L(\hat{y}, y) = (\hat{y} - y)^2$
+*   **Công thức (1 mẫu):** $L(\hat{y}, y) = \frac{1}{2} (\hat{y} - y)^2$
 *   **Công thức (N mẫu):** $L = \frac{1}{N} (\hat{y} - Y)^T (\hat{y} - Y)$
 *   **Đạo hàm theo $w$:** $\frac{\partial L}{\partial w} = 2x(\hat{y} - y)$
+
+![Pasted image 20260829144825](../../../05_Assets/Images/Pasted%20image%2020260829144825.png)
 > [!success] Ưu điểm
 > Đạo hàm mượt mà, hội tụ tốt và dễ tối ưu bằng Gradient Descent. Phạt rất nặng các điểm sai số lớn.
 > [!bug] Nhược điểm
@@ -56,8 +60,11 @@ Hàm mất mát đo lường mức độ sai lệch giữa dự đoán ($\hat{y}
 ### 2.2. Mean Absolute Error (MAE)
 Đo lường trung bình giá trị tuyệt đối của sai số.
 *   **Công thức (1 mẫu):** $L(\hat{y}, y) = \vert{}\hat{y} - y\vert{}$
+![Pasted image 20260829144849](../../../05_Assets/Images/Pasted%20image%2020260829144849.png)
+
 > [!success] Ưu điểm
 > Kháng nhiễu (outliers) cực tốt vì sai số được tính theo tuyến tính, không bị phóng đại bằng phép bình phương.
+
 > [!bug] Nhược điểm
 > Không khả vi (không có đạo hàm) tại điểm sai số bằng $0$. Quá trình hội tụ ở gần điểm cực tiểu khó khăn hơn.
 
@@ -67,6 +74,8 @@ Kết hợp hoàn hảo giữa điểm mạnh của MSE và MAE.
 $$L_\delta(\hat{y}, y) = \begin{cases} \frac{1}{2}(\hat{y} - y)^2 & \text{nếu } \vert{}\hat{y} - y\vert{} \le \delta \\ \delta \vert{}\hat{y} - y\vert{} - \frac{1}{2}\delta^2 & \text{nếu } \vert{}\hat{y} - y\vert{} > \delta \end{cases}$$
 *   **Đạo hàm theo $w$:**
 $$\frac{\partial L}{\partial w} = \begin{cases} x(\hat{y} - y) & \text{nếu } \vert{}\hat{y} - y\vert{} \le \delta \\ \delta x \cdot \frac{\hat{y} - y}{\vert{}\hat{y} - y\vert{}} & \text{nếu } \vert{}\hat{y} - y\vert{} > \delta \end{cases}$$
+
+![Pasted image 20260829145003](../../../05_Assets/Images/Pasted%20image%2020260829145003.png)
 > [!info] Đặc điểm
 > Sử dụng hành vi của MSE khi sai số nhỏ (dưới ngưỡng $\delta$) để dễ hội tụ, và sử dụng hành vi của MAE khi sai số lớn (vượt ngưỡng $\delta$) để kháng outliers.
 
@@ -81,12 +90,14 @@ $$\theta_{new} = \theta_{old} - \eta \nabla_\theta L$$
 *Với tập N mẫu (Vector hóa):*
 *   **Đạo hàm (Gradient):** $\nabla_\theta L = X^T k$ *(với $k = \frac{2}{N}(\hat{y} - y)$)*
 *   **Cập nhật:** $\theta = \theta - \eta \nabla_\theta L$
+![Pasted image 20260829145201](../../../05_Assets/Images/Pasted%20image%2020260829145201.png)
 
 ### 3.2. Vai trò của Learning Rate ($\eta$)
 $\eta$ quyết định độ dài bước nhảy trong không gian tham số.
 *   **$\eta$ quá nhỏ:** Mô hình cần rất nhiều bước (epochs) để hội tụ $\rightarrow$ Tốn thời gian huấn luyện.
 *   **$\eta$ quá lớn:** Thuật toán bước những bước quá dài, vượt qua (overshoot) điểm cực tiểu, gây ra dao động mạnh, hoặc thậm chí phân kỳ (Loss tiến tới vô cực).
 
+![Pasted image 20260829145122](../../../05_Assets/Images/Pasted%20image%2020260829145122.png)
 ### 3.3. So sánh MSE và MAE với Learning Rate cố định
 > [!example] Tại sao MSE hoạt động tốt hơn MAE khi $\eta$ cố định?
 > *   **Với MAE:** Đạo hàm luôn có độ lớn hằng số (vd: $1$ hoặc $-1$). Bước nhảy $\eta \nabla L$ sẽ có độ lớn không đổi. Khi tiến sát cực tiểu, mô hình dễ bị nhảy qua lại (dao động) qua điểm tối ưu mà không thể chạm đáy nếu không giảm $\eta$.
@@ -137,6 +148,8 @@ Cập nhật tham số ngay sau khi tính toán trên từng mẫu đơn lẻ.
 5.  **Cập nhật tham số (Update Parameters):** Điều chỉnh vector $\boldsymbol{\theta}$[:
     $$ \boldsymbol{\theta} = \boldsymbol{\theta} - \eta \nabla_{\boldsymbol{\theta}} L $$
 
+![Pasted image 20260829145328](../../../05_Assets/Images/Pasted%20image%2020260829145328.png)
+
 ---
 
 ### 6.2. Huấn luyện với nhóm $m$ mẫu (m-Samples / Mini-batch Gradient Descent)
@@ -157,6 +170,8 @@ Lấy một nhóm nhỏ $m$ mẫu ($1 < m < N$) để tận dụng tính toán m
 5.  **Cập nhật tham số (Update Parameters):** Lấy trung bình Gradient của $m$ mẫu:
     $$ \boldsymbol{\theta} = \boldsymbol{\theta} - \eta \frac{\nabla_{\boldsymbol{\theta}} L}{m} $$
 
+![Pasted image 20260829145352](../../../05_Assets/Images/Pasted%20image%2020260829145352.png)
+
 ---
 
 ### 6.3. Huấn luyện với toàn bộ $N$ mẫu (N-Samples / Batch Gradient Descent)
@@ -176,6 +191,8 @@ Duyệt qua toàn bộ tập dữ liệu gồm $N$ mẫu trong một lần lặp
       $$ \nabla_{\boldsymbol{\theta}} L = \mathbf{X}^T \mathbf{k} = \begin{bmatrix} \sum_{i=1}^N k^{(i)} \\ \sum_{i=1}^N k^{(i)}x_1^{(i)} \\ \vdots \\ \sum_{i=1}^N k^{(i)}x_d^{(i)} \end{bmatrix} $$
 5.  **Cập nhật tham số (Update Parameters):** Lấy trung bình Gradient của $N$ mẫu:
     $$ \boldsymbol{\theta} = \boldsymbol{\theta} - \eta \frac{\nabla_{\boldsymbol{\theta}} L}{N} $$
+
+![Pasted image 20260829145414](../../../05_Assets/Images/Pasted%20image%2020260829145414.png)
 
 > [!tip] Ý nghĩa của phép nhân $\mathbf{X}^T \mathbf{k}$
 > Phép nhân ma trận $\mathbf{X}^T \mathbf{k}$ bản chất là cách viết gộp (vector hóa) của việc lấy **tổng của (sai số $\times$ giá trị đặc trưng)** trên toàn bộ $m$ hoặc $N$ mẫu cho từng trọng số $w$ tương ứng. Nó giúp CPU/GPU tính toán toàn bộ vòng lặp nội tại cùng một lúc bằng một phép `.dot()`[cite: 5, 6].

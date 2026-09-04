@@ -187,10 +187,10 @@ Trong đó:
 >
 > “Mức cải thiện có đủ lớn để xứng đáng với độ phức tạp tăng thêm không?”
 
-![[Pasted image 20260804110932.png]]
-![[Pasted image 20260804110949.png]]
-![[Pasted image 20260804111001.png]]
-![[Pasted image 20260804111021.png]]
+![Pasted image 20260804110932](../../../../05_Assets/Images/Pasted%20image%2020260804110932.png)
+![Pasted image 20260804110949](../../../../05_Assets/Images/Pasted%20image%2020260804110949.png)
+![Pasted image 20260804111001](../../../../05_Assets/Images/Pasted%20image%2020260804111001.png)
+![Pasted image 20260804111021](../../../../05_Assets/Images/Pasted%20image%2020260804111021.png)
 
 ---
 
@@ -219,7 +219,7 @@ $$\text{Output} = \frac{\text{Sum of Residuals}}{\text{Number of Residuals}}$$
 * $\text{Number of Residuals}$ là số lượng sample.
 **Step6:** Dùng công thức sau $f0 + lr * \text{Output}$ để dự đoán kết quả cho toàn bộ training sample (thay thế cho $f0$) và tiếp tục thực hiện step 2 đến step 5 cho đến khi thoả mãn điều kiện dừng.
 
-![[Pasted image 20260804145414.png]]
+![Pasted image 20260804145414](../../../../05_Assets/Images/Pasted%20image%2020260804145414.png)
 
 ---
 
@@ -238,7 +238,7 @@ $$
 $$
 
 Đây chỉ là điểm xuất phát. Các cây sau sẽ dần sửa prediction này.
-![[Pasted image 20260804145444.png]]
+![Pasted image 20260804145444](../../../../05_Assets/Images/Pasted%20image%2020260804145444.png)
 
 ---
 
@@ -604,7 +604,7 @@ $$\text{Output} = \frac{\text{Sum of Residuals}}{\sum [\text{PreviousProbability
 >
 > Cây cộng vào **raw score / log-odds**.
 
-![[Pasted image 20260804160952.png]]
+![Pasted image 20260804160952](../../../../05_Assets/Images/Pasted%20image%2020260804160952.png)
 
 ---
 
