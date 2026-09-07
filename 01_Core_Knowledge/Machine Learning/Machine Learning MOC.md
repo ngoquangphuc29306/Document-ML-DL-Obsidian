@@ -25,6 +25,6 @@ created: 2026-07-21
 - [[Unsupervised Learning MOC]]
 
 ## Evaluation
-- [[Evaluation Metrics]]
+- [[Evaluation/Classifier Metric]]
 ## Feature Engineering
 - [[Feature Scaling]]

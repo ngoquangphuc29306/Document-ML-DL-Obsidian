@@ -26,7 +26,7 @@ created: 2026-07-21
 - [[Ensemble Learning]]
 
 ### Evaluation
-- [[Evaluation Metrics]]
+- [[01_Core_Knowledge/Machine Learning/Evaluation/Classifier Metric]]
 - [[Cross-Validation]]
 - [[Similarity Metrics]]
 ### Feature Engineering

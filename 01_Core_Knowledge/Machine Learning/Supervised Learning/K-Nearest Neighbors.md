@@ -275,10 +275,10 @@ Quá trình chọn $K$ tối ưu được thực hiện bằng cách đánh giá
 Quá trình chọn **K** có thể áp dụng phương pháp [[Cross-Validation]] để tìm. 
 
 Chi tiết định nghĩa, công thức và bài toán áp dụng của từng chỉ số được lưu trữ tại:
-*   [[Evaluation Metrics#Accuracy Độ chính xác tổng quan|Accuracy]]
-*   [[Evaluation Metrics#Precision Độ chính xác của lựa chọn|Precision]]
-*   [[Evaluation Metrics#Recall Sensitivity Độ phủ Tỷ lệ tìm sót|Recall]]
-*   [[Evaluation Metrics#F1-Score|F1-Score]]
+*   [[../Evaluation/Classifier Metric#Accuracy Độ chính xác tổng quan|Accuracy]]
+*   [[../Evaluation/Classifier Metric#Precision Độ chính xác của lựa chọn|Precision]]
+*   [[../Evaluation/Classifier Metric#Recall Sensitivity Độ phủ Tỷ lệ tìm sót|Recall]]
+*   [[../Evaluation/Classifier Metric#F1-Score|F1-Score]]
 
 ![Pasted image 20260720203856](../../../05_Assets/Images/Pasted%20image%2020260720203856.png)
 

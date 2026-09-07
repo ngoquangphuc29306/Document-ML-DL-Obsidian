@@ -105,8 +105,3 @@ Dùng cho dữ liệu rời rạc, phân loại (Categorical Data), chuỗi văn
 | **Hamming** | Chuỗi ký tự, mã Nhị phân | Tính toán cực nhanh | Hai chuỗi bắt buộc phải có độ dài bằng nhau. |
 
 ---
-
-## 5. Mối liên kết trong Obsidian
-* Thuật toán phụ thuộc trực tiếp vào các khoảng cách này: [[K-Nearest Neighbors#4 Geometry distance Function|KNN Distance Functions]]
-* Sử dụng khoảng cách để đánh giá cân bằng dữ liệu: [[Overfitting vs Underfitting]]
-* Ứng dụng trong quy trình tiền xử lý: [[Machine Learning Workflow#Bước 2 Data Preprocessing Cleaning|ML Workflow]]

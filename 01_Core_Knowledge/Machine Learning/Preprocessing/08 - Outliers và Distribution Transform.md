@@ -16,21 +16,11 @@ Có thể là:
 
 ## 2. IQR Rule
 
-\[
-IQR=Q_3-Q_1
-\]
-
-\[
-L=Q_1-1.5IQR,\qquad U=Q_3+1.5IQR
-\]
-
+$IQR=Q_3-Q_1$
+$L=Q_1-1.5IQR,\qquad U=Q_3+1.5IQR$
 Đây là heuristic phát hiện, không phải luật bắt buộc xóa.
-
 ## 3. Z-score
-
-\[
-z=\frac{x-\mu}{\sigma}
-\]
+$$z=\frac{x-\mu}{\sigma}$$
 
 `|z| > 3` đôi khi dùng nếu dữ liệu gần normal, nhưng không phù hợp với phân phối lệch mạnh.
 
@@ -45,9 +35,7 @@ z=\frac{x-\mu}{\sigma}
 
 ## 5. Clipping
 
-\[
-x'=\min(\max(x,L),U)
-\]
+$$x'=\min(\max(x,L),U)$$
 
 Chỉ dùng khi có lý do nghiệp vụ hoặc validation chứng minh hữu ích.
 

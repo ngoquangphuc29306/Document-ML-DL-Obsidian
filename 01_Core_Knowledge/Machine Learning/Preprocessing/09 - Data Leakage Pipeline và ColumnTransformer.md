@@ -35,7 +35,7 @@ Ví dụ dự đoán trả nợ nhưng dùng `loan_repaid_date` nếu cột này
 
 ## 4. Time Leakage
 
-Dự đoán \(y_t\) nhưng dùng \(y_{t+1}\), rolling window chứa tương lai hoặc weather thực tế tương lai.
+Dự đoán \(y_t\) nhưng dùng $y_{t+1}$, rolling window chứa tương lai hoặc weather thực tế tương lai.
 
 ## 5. Group Leakage
 

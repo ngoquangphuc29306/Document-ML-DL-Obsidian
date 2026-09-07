@@ -108,11 +108,3 @@ Feature ở tập train phải mô phỏng chính xác dữ liệu thực sự c
 * *Ví dụ:* Nếu dự báo $7$ ngày tới, **không được dùng thời tiết thực tế** của $7$ ngày tới; chỉ được dùng **dự báo thời tiết (weather forecast)** khả dụng đúng tại thời điểm chạy model.
 
 ---
-
-## 9. Checklist kiểm tra
-
-- [ ] Các tính toán Rolling đã thực hiện `.shift()` chưa?
-- [ ] Có tính năng nào vô tình dùng thông tin tương lai không?
-- [ ] Các phép Aggregation đã được giới hạn chính xác theo thời điểm dự báo (prediction time) chưa?
-- [ ] Dữ liệu ngoại sinh (External features) có thực sự có sẵn lúc dự báo không?
-- [ ] Phương pháp Validation có giữ đúng thứ tự thời gian không?

@@ -40,6 +40,3 @@ Khi hoàn thành bước `Model Training` trong [[Machine Learning Workflow]], t
 * **Ý nghĩa:** Giá trị trung bình điều hòa (Harmonic Mean) giữa Precision và Recall. F1-Score chỉ cao khi cả Precision và Recall đều tốt, giúp đánh giá mô hình một cách toàn diện trên tập dữ liệu mất cân bằng.
 
 ---
-
-## 2. Đối với bài toán [[Classification vs Regression#2. Regression|Regression]]
-*(Sẽ bổ sung chi tiết các chỉ số MSE, RMSE, MAE, R-squared khi học tới các bài toán Hồi quy nâng cao)*
