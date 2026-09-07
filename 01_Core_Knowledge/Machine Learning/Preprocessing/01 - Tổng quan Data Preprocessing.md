@@ -38,7 +38,7 @@ Linear/Logistic Regression thường cần scaling, encoding; skewness đôi khi
 ### Tree-based
 Decision Tree, Random Forest, Gradient Boosting, XGBoost thường **không bắt buộc scaling** vì split theo threshold từng feature.
 
-> [!note]
+> [!NOTE]
 > Tree model không cần scaling không có nghĩa là không cần xử lý schema, missing, category hay leakage.
 
 ## 3. Fit và Transform

@@ -22,7 +22,7 @@ spam → 1
 not_spam → 0
 ```
 
-> [!warning]
+> [!WARNING]
 > Không nên dùng LabelEncoder cho **nominal feature** vì sẽ tạo thứ tự giả (ví dụ: `Red=0, Blue=1, Green=2` khiến model hiểu sai là có quan hệ thứ tự).
 ## 3. Ordinal Encoding
 

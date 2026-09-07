@@ -8,7 +8,7 @@ status: complete
 
 # Preprocessing — MOC
 
-> [!abstract] Mục tiêu
+> [!NOTE] Mục tiêu
 > Preprocessing trả lời câu hỏi: **“Dữ liệu đã đúng, nhất quán, không leakage và ở dạng model có thể sử dụng chưa?”**
 
 ## Lộ trình
@@ -35,7 +35,7 @@ F --> H[Model]
 G --> H
 ```
 
-> [!important] Quy tắc vàng
+> [!IMPORTANT] Quy tắc vàng
 > Mọi bước **học tham số từ dữ liệu** như imputer, scaler, encoder vocabulary, TF-IDF IDF, PCA... đều phải `fit` chỉ trên **training data**.
 
 ## Phân biệt với Feature Engineering

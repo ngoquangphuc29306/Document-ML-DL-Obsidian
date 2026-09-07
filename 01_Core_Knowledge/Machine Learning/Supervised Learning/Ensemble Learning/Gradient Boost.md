@@ -18,17 +18,7 @@ Trong thực tế, weak learner thường là một **Regression Tree có độ 
 Mỗi cây mới không dự đoán lại giá trị mục tiêu từ đầu. Thay vào đó, nó học cách sửa phần lỗi mà mô hình hiện tại vẫn còn dự đoán sai.
 Quy trình có thể nhớ ngắn gọn như sau:
 $$
-\boxed{
-\text{Dự đoán}
-\rightarrow
-\text{Tính phần sai}
-\rightarrow
-\text{Xây cây học phần sai}
-\rightarrow
-\text{Cập nhật dự đoán}
-\rightarrow
-\text{Lặp lại}
-}
+\boxed{ \text{Dự đoán} \rightarrow \text{Tính phần sai} \rightarrow \text{Xây cây học phần sai} \rightarrow \text{Cập nhật dự đoán} \rightarrow \text{Lặp lại} }
 $$
 Mô hình cuối cùng là tổng của:
 - dự đoán ban đầu;
@@ -36,15 +26,7 @@ Mô hình cuối cùng là tổng của:
 - phần điều chỉnh của cây thứ hai;
 - và các cây tiếp theo.
 $$
-F_M(x)
-=
-F_0(x)
-+
-\eta h_1(x)
-+
-\eta h_2(x)
-+\dots+
-\eta h_M(x).
+F_M(x) = F_0(x) + \eta h_1(x) + \eta h_2(x) +\dots+ \eta h_M(x).
 $$
 
 Trong đó:
@@ -55,7 +37,7 @@ Trong đó:
 - $\eta$: learning rate;
 - $M$: tổng số cây.
 
-> [!important]
+> [!IMPORTANT]
 > Gradient Boosting không huấn luyện các cây độc lập.  
 > Cây sau phụ thuộc vào kết quả của tất cả các cây trước đó.
 
@@ -78,11 +60,7 @@ $$
 Phần mô hình còn dự đoán thiếu là:
 
 $$
-r_1
-=
-88-71.2
-=
-16.8.
+r_1 = 88-71.2 = 16.8.
 $$
 
 Cây thứ nhất sẽ cố gắng học giá trị điều chỉnh gần với $16.8$.
@@ -102,11 +80,7 @@ $$
 Dự đoán mới là:
 
 $$
-F_1(x)
-=
-71.2+1.68
-=
-72.88.
+F_1(x) = 71.2+1.68 = 72.88.
 $$
 
 Sau đó cây thứ hai tiếp tục học phần sai còn lại:
@@ -141,9 +115,7 @@ Trong đó:
 Ta ký hiệu tập dữ liệu:
 
 $$
-\mathcal D
-=
-\{(x_i,y_i)\}_{i=1}^{N}.
+\mathcal D = \{(x_i,y_i)\}_{i=1}^{N}.
 $$
 
 Trong đó:
@@ -161,12 +133,7 @@ Gradient Boosting cần một hàm mất mát để đo mức độ sai của m�
 Trong ví dụ Regression, ta sử dụng **Squared Error**:
 
 $$
-L(y_i,F(x_i))
-=
-\frac{1}{2}
-\left(
-y_i-F(x_i)
-\right)^2.
+L(y_i,F(x_i)) = \frac{1}{2} \left( y_i-F(x_i) \right)^2.
 $$
 
 Trong đó:
@@ -186,27 +153,19 @@ Hệ số $\frac12$ được thêm vào để việc lấy đạo hàm thuận t
 Residual là chênh lệch giữa giá trị thật và giá trị dự đoán:
 
 $$
-r_i
-=
-y_i-\widehat y_i.
+r_i = y_i-\widehat y_i.
 $$
 
 Ví dụ:
 
 $$
-y_i=88,
-\qquad
-\widehat y_i=71.2.
+y_i=88, \qquad \widehat y_i=71.2.
 $$
 
 Khi đó:
 
 $$
-r_i
-=
-88-71.2
-=
-16.8.
+r_i = 88-71.2 = 16.8.
 $$
 
 Ý nghĩa:
@@ -220,13 +179,7 @@ $$
 Trong Gradient Boosting tổng quát, cây mới học **negative gradient** của loss:
 
 $$
-r_{im}
-=
--
-\left[
-\frac{\partial L(y_i,F(x_i))}
-{\partial F(x_i)}
-\right]_{F=F_{m-1}}.
+r_{im} = - \left[ \frac{\partial L(y_i,F(x_i))} {\partial F(x_i)} \right]_{F=F_{m-1}}.
 $$
 ``
 $r_{im}$ được gọi là **pseudo-residual** của mẫu $i$ tại vòng $m$.
@@ -234,43 +187,28 @@ $r_{im}$ được gọi là **pseudo-residual** của mẫu $i$ tại vòng $m$.
 Với Squared Error:
 
 $$
-L(y_i,F(x_i))
-=
-\frac12
-\left(y_i-F(x_i)\right)^2,
+L(y_i,F(x_i)) = \frac12 \left(y_i-F(x_i)\right)^2,
 $$
 
 ta có:
 
 $$
-\frac{\partial L}
-{\partial F(x_i)}
-=
-F(x_i)-y_i.
+\frac{\partial L} {\partial F(x_i)} = F(x_i)-y_i.
 $$
 
 Do đó:
 
 $$
-r_{im}
-=
--
-\left(F_{m-1}(x_i)-y_i\right)
-=
-y_i-F_{m-1}(x_i).
+r_{im} = - \left(F_{m-1}(x_i)-y_i\right) = y_i-F_{m-1}(x_i).
 $$
 
 Vì vậy, với Squared Error:
 
 $$
-\boxed{
-\text{Pseudo-residual}
-=
-\text{Residual thông thường}
-}
+\boxed{ \text{Pseudo-residual} = \text{Residual thông thường} }
 $$
 
-> [!note]
+> [!NOTE]
 > Với các loss khác, pseudo-residual không nhất thiết bằng $y_i-F(x_i)$.  
 > Vì vậy, Gradient Boosting tổng quát hơn việc chỉ học residual.
 
@@ -283,49 +221,29 @@ $$
 Ta bắt đầu bằng một mô hình rất đơn giản, chỉ dự đoán một giá trị hằng số cho tất cả các mẫu:
 
 $$
-F_0(x)
-=
-\arg\min_{\gamma}
-\sum_{i=1}^{N}
-L(y_i,\gamma).
+F_0(x) = \arg\min_{\gamma} \sum_{i=1}^{N} L(y_i,\gamma).
 $$
 
 Với Squared Error, giá trị tối ưu là trung bình của tất cả target:
 
 $$
-F_0(x)
-=
-\bar y
-=
-\frac{1}{N}
-\sum_{i=1}^{N}y_i.
+F_0(x) = \bar y = \frac{1}{N} \sum_{i=1}^{N}y_i.
 $$
 
 Với dữ liệu ví dụ:
 
 $$
-\bar y
-=
-\frac{
-88+76+56+73+77+57
-}{6}.
+\bar y = \frac{ 88+76+56+73+77+57 }{6}.
 $$
 
 $$
-\bar y
-=
-\frac{427}{6}
-=
-71.1667
-\approx71.2.
+\bar y = \frac{427}{6} = 71.1667 \approx71.2.
 $$
 
 Do đó:
 
 $$
-\boxed{
-F_0(x)=71.2
-}
+\boxed{ F_0(x)=71.2 }
 $$
 
 Mô hình ban đầu dự đoán cân nặng của mọi người đều bằng khoảng $71.2$ kg.
@@ -337,9 +255,7 @@ Mô hình ban đầu dự đoán cân nặng của mọi người đều bằng 
 Residual của mỗi mẫu là:
 
 $$
-r_{i1}
-=
-y_i-F_0(x_i).
+r_{i1} = y_i-F_0(x_i).
 $$
 
 Với:
@@ -362,19 +278,11 @@ ta có bảng residual gần đúng:
 Ví dụ:
 
 $$
-r_{11}
-=
-88-71.2
-=
-16.8.
+r_{11} = 88-71.2 = 16.8.
 $$
 
 $$
-r_{31}
-=
-56-71.2
-=
--15.2.
+r_{31} = 56-71.2 = -15.2.
 $$
 
 Các residual này trở thành target mới để huấn luyện cây thứ nhất.
@@ -382,12 +290,10 @@ Các residual này trở thành target mới để huấn luyện cây thứ nh�
 Tập dữ liệu mà cây thứ nhất học có dạng:
 
 $$
-\{
-(x_i,r_{i1})
-\}_{i=1}^{N}.
+\{ (x_i,r_{i1}) \}_{i=1}^{N}.
 $$
 
-> [!important]
+> [!IMPORTANT]
 > Cây không còn dự đoán trực tiếp `Weight`.  
 > Cây dự đoán phần sai còn lại của mô hình hiện tại.
 
@@ -427,25 +333,13 @@ $$
 Với mỗi lá $R_{jm}$, ta tìm giá trị cập nhật tốt nhất:
 
 $$
-\gamma_{jm}
-=
-\arg\min_{\gamma}
-\sum_{x_i\in R_{jm}}
-L
-\left(
-y_i,
-F_{m-1}(x_i)+\gamma
-\right).
+\gamma_{jm} = \arg\min_{\gamma} \sum_{x_i\in R_{jm}} L \left( y_i, F_{m-1}(x_i)+\gamma \right).
 $$
 
 Với Squared Error, giá trị tối ưu là trung bình residual trong lá:
 
 $$
-\gamma_{jm}
-=
-\frac{1}{|R_{jm}|}
-\sum_{x_i\in R_{jm}}
-r_{im}.
+\gamma_{jm} = \frac{1}{|R_{jm}|} \sum_{x_i\in R_{jm}} r_{im}.
 $$
 
 Nói đơn giản:
@@ -455,18 +349,12 @@ Nói đơn giản:
 Ví dụ, nếu một lá chứa hai residual:
 
 $$
--15.2
-\quad\text{và}\quad
--14.2,
+-15.2 \quad\text{và}\quad -14.2,
 $$
 thì giá trị lá là:
 
 $$
-\gamma
-=
-\frac{-15.2+(-14.2)}{2}
-=
--14.7.
+\gamma = \frac{-15.2+(-14.2)}{2} = -14.7.
 $$
 
 Điều này giải thích giá trị $-14.7$ xuất hiện trong cây của ví dụ.
@@ -480,11 +368,7 @@ Nếu một mẫu rơi vào lá này, cây đề xuất giảm dự đoán kho�
 Sau khi huấn luyện cây thứ nhất, ta cập nhật:
 
 $$
-F_1(x)
-=
-F_0(x)
-+
-\eta h_1(x).
+F_1(x) = F_0(x) + \eta h_1(x).
 $$
 
 Trong đó:
@@ -511,25 +395,17 @@ $$
 Khi đó:
 
 $$
-F_1(x)
-=
-71.2+0.1\times16.8.
+F_1(x) = 71.2+0.1\times16.8.
 $$
 
 $$
-F_1(x)
-=
-72.88.
+F_1(x) = 72.88.
 $$
 
 Nếu không dùng learning rate hoặc $\eta=1$, mô hình sẽ cập nhật toàn bộ:
 
 $$
-F_1(x)
-=
-71.2+16.8
-=
-88.
+F_1(x) = 71.2+16.8 = 88.
 $$
 
 Tuy nhiên, cập nhật quá mạnh có thể khiến mô hình dễ overfit. Vì vậy trong thực tế thường sử dụng:
@@ -545,9 +421,7 @@ $$
 Sau khi có mô hình mới $F_1$, ta tính lại residual:
 
 $$
-r_{i2}
-=
-y_i-F_1(x_i).
+r_{i2} = y_i-F_1(x_i).
 $$
 
 Residual mới thường nhỏ hơn residual trước đó.
@@ -555,27 +429,19 @@ Residual mới thường nhỏ hơn residual trước đó.
 Ví dụ:
 
 $$
-y_i=88,
-\qquad
-F_1(x_i)=72.88.
+y_i=88, \qquad F_1(x_i)=72.88.
 $$
 
 Khi đó:
 
 $$
-r_{i2}
-=
-88-72.88
-=
-15.12.
+r_{i2} = 88-72.88 = 15.12.
 $$
 
 Cây thứ hai sẽ học các residual mới:
 
 $$
-\{
-(x_i,r_{i2})
-\}_{i=1}^{N}.
+\{ (x_i,r_{i2}) \}_{i=1}^{N}.
 $$
 
 ---
@@ -593,29 +459,19 @@ $$
 Sau đó cập nhật:
 
 $$
-F_2(x)
-=
-F_1(x)
-+
-\eta h_2(x).
+F_2(x) = F_1(x) + \eta h_2(x).
 $$
 
 Tương tự, cây thứ ba học residual của mô hình $F_2$:
 
 $$
-r_{i3}
-=
-y_i-F_2(x_i).
+r_{i3} = y_i-F_2(x_i).
 $$
 
 Sau đó:
 
 $$
-F_3(x)
-=
-F_2(x)
-+
-\eta h_3(x).
+F_3(x) = F_2(x) + \eta h_3(x).
 $$
 
 Quá trình được lặp lại đến khi:
@@ -631,13 +487,7 @@ Quá trình được lặp lại đến khi:
 Ở vòng $m$, pseudo-residual của mẫu $i$ là:
 
 $$
-r_{im}
-=
--
-\left[
-\frac{\partial L(y_i,F(x_i))}
-{\partial F(x_i)}
-\right]_{F=F_{m-1}}.
+r_{im} = - \left[ \frac{\partial L(y_i,F(x_i))} {\partial F(x_i)} \right]_{F=F_{m-1}}.
 $$
 
 Huấn luyện cây $h_m(x)$ để dự đoán:
@@ -649,42 +499,19 @@ $$
 Cập nhật mô hình:
 
 $$
-F_m(x)
-=
-F_{m-1}(x)
-+
-\eta h_m(x).
+F_m(x) = F_{m-1}(x) + \eta h_m(x).
 $$
 
 Sau $M$ cây:
 
 $$
-\boxed{
-F_M(x)
-=
-F_0(x)
-+
-\eta
-\sum_{m=1}^{M}
-h_m(x)
-}
+\boxed{ F_M(x) = F_0(x) + \eta \sum_{m=1}^{M} h_m(x) }
 $$
 
 Nếu viết rõ theo các lá cây:
 
 $$
-F_M(x)
-=
-F_0(x)
-+
-\eta
-\sum_{m=1}^{M}
-\sum_{j=1}^{J_m}
-\gamma_{jm}
-\mathbb I
-\left\{
-x\in R_{jm}
-\right\}.
+F_M(x) = F_0(x) + \eta \sum_{m=1}^{M} \sum_{j=1}^{J_m} \gamma_{jm} \mathbb I \left\{ x\in R_{jm} \right\}.
 $$
 
 Trong đó:
@@ -719,9 +546,7 @@ $$
 Cập nhật:
 
 $$
-F_1(x)
-=
-F_0(x)+\eta h_1(x).
+F_1(x) = F_0(x)+\eta h_1(x).
 $$
 
 ### Bước 3
@@ -729,9 +554,7 @@ $$
 Cho $x$ đi qua cây thứ hai:
 
 $$
-F_2(x)
-=
-F_1(x)+\eta h_2(x).
+F_2(x) = F_1(x)+\eta h_2(x).
 $$
 
 ### Bước 4
@@ -739,13 +562,7 @@ $$
 Tiếp tục qua toàn bộ cây:
 
 $$
-F_M(x)
-=
-F_0(x)
-+
-\eta h_1(x)
-+\dots+
-\eta h_M(x).
+F_M(x) = F_0(x) + \eta h_1(x) +\dots+ \eta h_M(x).
 $$
 
 Kết quả cuối cùng:
@@ -761,11 +578,7 @@ $$
 Learning rate kiểm soát mức đóng góp của mỗi cây:
 
 $$
-F_m(x)
-=
-F_{m-1}(x)
-+
-\eta h_m(x).
+F_m(x) = F_{m-1}(x) + \eta h_m(x).
 $$
 
 ### Learning rate lớn
@@ -785,11 +598,7 @@ $$
 Một nguyên tắc thường gặp:
 
 $$
-\boxed{
-\text{Learning rate nhỏ}
-\Longrightarrow
-\text{cần nhiều cây hơn}
-}
+\boxed{ \text{Learning rate nhỏ} \Longrightarrow \text{cần nhiều cây hơn} }
 $$
 
 ---

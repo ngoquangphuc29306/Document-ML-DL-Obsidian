@@ -96,5 +96,5 @@ Việc dừng quá trình huấn luyện trước khi mô hình bắt đầu h�
 
 ---
 
-> [!important]
+> [!IMPORTANT]
 > Regularization không nhằm mục đích làm cho train error đạt mức thấp nhất; mục tiêu chính của nó là **tối ưu hóa hiệu năng trên dữ liệu chưa từng thấy (unseen data)**.

@@ -14,7 +14,7 @@ status: complete
 
 # Support Vector Machine (SVM)
 
-> [!abstract] Mục tiêu của ghi chú
+> [!NOTE] Mục tiêu của ghi chú
 > Tài liệu này giúp bạn hiểu **SVM hoạt động như thế nào**, thay vì chỉ học thuộc công thức.
 >
 > Sau khi đọc xong, bạn nên trả lời được:
@@ -37,7 +37,7 @@ status: complete
 
 Ý tưởng cốt lõi của SVM trong bài toán phân loại là:
 
-> [!summary]
+> [!NOTE]
 > Tìm một ranh giới phân loại không chỉ phân chia dữ liệu tốt, mà còn tạo ra **khoảng cách an toàn lớn nhất** giữa ranh giới và những điểm dữ liệu gần nó nhất.
 
 Ranh giới này được gọi là **decision boundary** hoặc **hyperplane**.
@@ -52,7 +52,7 @@ Một số đường có thể phân loại đúng toàn bộ dữ liệu huấn
 
 SVM ưu tiên đường phân chia có khoảng cách đến các điểm gần nhất của hai lớp là lớn nhất.
 
-> [!note] Gợi ý hình minh họa
+> [!NOTE] Gợi ý hình minh họa
 > Chèn hình từ **PDF trang 13–18**:
 > - Trang 13–14: nhiều đường đều có thể phân chia hai lớp.
 > - Trang 17: so sánh ranh giới có khoảng cách nhỏ và lớn.
@@ -117,7 +117,7 @@ Cụ thể:
 \end{cases}
 \]
 
-> [!important]
+> [!IMPORTANT]
 > Không nên hiểu SVM theo quy tắc “điểm nằm bên trái hay bên phải”.
 >
 > Quy tắc tổng quát là xét **dấu của hàm quyết định** \(f(\mathbf{x})\). Bên nào mang nhãn \(+1\) hoặc \(-1\) phụ thuộc vào hướng của \(\mathbf{w}\).
@@ -190,7 +190,7 @@ Trong thực tế, ta thường tối thiểu hóa biểu thức tương đươn
 \frac{1}{2}\|\mathbf{w}\|^2
 \]
 
-> [!note] Gợi ý hình minh họa
+> [!NOTE] Gợi ý hình minh họa
 > Chèn hình từ **PDF trang 19–20 hoặc trang 33–34** để thể hiện:
 > - Decision boundary
 > - Hai đường margin
@@ -209,7 +209,7 @@ Trong thực tế, ta thường tối thiểu hóa biểu thức tương đươn
 
 Đây là những điểm nằm gần decision boundary nhất và có ảnh hưởng trực tiếp đến vị trí của ranh giới.
 
-> [!summary]
+> [!NOTE]
 > SVM không cần mọi điểm dữ liệu để quyết định ranh giới.  
 > Ranh giới chủ yếu được xác định bởi các **support vectors**.
 
@@ -221,7 +221,7 @@ Nếu di chuyển một điểm ở rất xa margin, ranh giới thường gần
 
 Nếu di chuyển một support vector, ranh giới có thể thay đổi rõ rệt.
 
-> [!note] Gợi ý hình minh họa
+> [!NOTE] Gợi ý hình minh họa
 > Chèn hình từ **PDF trang 25–26** để đánh dấu:
 > - Các điểm trên margin
 > - Các điểm nằm bên trong margin
@@ -296,10 +296,10 @@ Hard Margin SVM rất nhạy cảm với:
 
 Chỉ một outlier cũng có thể khiến decision boundary thay đổi mạnh và margin bị thu hẹp.
 
-> [!note] Gợi ý hình minh họa
+> [!NOTE] Gợi ý hình minh họa
 > Chèn hình từ **PDF trang 21** để minh họa outlier khiến Hard Margin tạo ra ranh giới kém.
 
-> [!warning]
+> [!WARNING]
 > Hard Margin SVM chủ yếu có giá trị để hiểu lý thuyết.  
 > Trong dữ liệu thực tế, Soft Margin SVM thường phù hợp hơn.
 
@@ -373,7 +373,7 @@ Hai phần của hàm mục tiêu:
 \underbrace{C\sum_{i=1}^{n}\xi_i}_{\text{phạt vi phạm}}
 \]
 
-> [!note] Gợi ý hình minh họa
+> [!NOTE] Gợi ý hình minh họa
 > Chèn hình từ **PDF trang 22–26 và trang 36**:
 > - Cho phép điểm vi phạm margin
 > - Minh họa điểm bị phân loại sai
@@ -440,7 +440,7 @@ y_i f(\mathbf{x}_i)<0
 
 Loss lớn hơn 1.
 
-> [!tip]
+> [!TIP]
 > Hinge loss không chỉ yêu cầu dự đoán đúng.  
 > Nó còn yêu cầu điểm được dự đoán đúng với **khoảng cách đủ an toàn** khỏi decision boundary.
 
@@ -471,7 +471,7 @@ Loss lớn hơn 1.
 | Nhỏ | Margin rộng, chấp nhận lỗi |
 | Lớn | Margin hẹp, cố gắng giảm lỗi train |
 
-> [!important]
+> [!IMPORTANT]
 > Không có giá trị \(C\) tốt nhất cho mọi bài toán.  
 > Cần lựa chọn bằng validation hoặc cross-validation.
 
@@ -510,7 +510,7 @@ x^2
 
 Trong không gian mới, dữ liệu có thể được phân tách bằng một đường thẳng.
 
-> [!note] Gợi ý hình minh họa
+> [!NOTE] Gợi ý hình minh họa
 > Chèn hình từ **PDF phần dữ liệu phi tuyến và kernel, khoảng trang 37–46**:
 > - Dữ liệu không phân tách được trong không gian gốc
 > - Ánh xạ lên không gian chiều cao
@@ -550,7 +550,7 @@ K(\mathbf{x}_i,\mathbf{x}_j)
 
 Nhờ đó, ta tính tích vô hướng trong không gian chiều cao mà không cần tạo trực tiếp các vector \(\phi(\mathbf{x})\).
 
-> [!summary]
+> [!NOTE]
 > Kernel không nhất thiết “di chuyển dữ liệu” theo nghĩa tính toàn bộ tọa độ mới.
 >
 > Nó cho phép mô hình làm việc như thể dữ liệu đã được ánh xạ lên không gian chiều cao bằng cách tính trực tiếp giá trị \(K(\mathbf{x}_i,\mathbf{x}_j)\).
@@ -641,7 +641,7 @@ a^2 \\
 
 nhưng ta không cần tạo vector này một cách trực tiếp.
 
-> [!warning]
+> [!WARNING]
 > Bậc \(d\) lớn làm decision boundary phức tạp hơn và dễ overfit.
 
 ---
@@ -667,7 +667,7 @@ K(\mathbf{x},\mathbf{z})
 
 RBF kernel cho phép tạo ranh giới phi tuyến rất linh hoạt.
 
-> [!important]
+> [!IMPORTANT]
 > RBF không phải thuật toán KNN.
 >
 > Nó có trực giác dựa trên độ tương tự cục bộ, nhưng dự đoán vẫn được xây dựng từ các support vectors và nghiệm tối ưu của SVM.
@@ -744,7 +744,7 @@ Dự đoán:
 \operatorname{sign}(f(\mathbf{x}))
 \]
 
-> [!summary] Mô hình suy luận như thế nào?
+> [!NOTE] Mô hình suy luận như thế nào?
 > Khi có một điểm mới:
 >
 > 1. Tính độ tương tự giữa điểm mới và các support vectors.
@@ -807,7 +807,7 @@ L_{\epsilon}(y,f(\mathbf{x}))
 - \(C\) lớn → phạt mạnh các điểm ngoài tube
 - \(C\) nhỏ → chấp nhận nhiều sai lệch hơn
 
-> [!note] Gợi ý hình minh họa
+> [!NOTE] Gợi ý hình minh họa
 > Chèn hình từ **phần Regression Problem/SVR ở cuối PDF**:
 > - Đường dự đoán
 > - Hai biên \(\epsilon\)-tube
@@ -839,7 +839,7 @@ x' =
 
 tức là `StandardScaler`.
 
-> [!danger] Data leakage
+> [!CAUTION] Data leakage
 > Chỉ `fit` scaler trên tập train.
 >
 > Không được tính trung bình và độ lệch chuẩn từ toàn bộ dữ liệu trước khi chia train/test.
@@ -1072,7 +1072,7 @@ Tuy nhiên:
 - Xác suất được hiệu chỉnh bổ sung
 - Cần kiểm tra calibration nếu xác suất rất quan trọng
 
-> [!tip]
+> [!TIP]
 > Nếu chỉ cần xếp hạng hoặc phân lớp, decision score có thể đủ.
 >
 > Nếu dùng xác suất cho quyết định kinh doanh, nên đánh giá calibration.
@@ -1148,7 +1148,7 @@ Trong các trường hợp đó, có thể cân nhắc:
 
 # 25. Những điều cần hiểu khi đi làm
 
-> [!important]
+> [!IMPORTANT]
 > Trong thực tế, bạn thường không cần tự viết thuật toán SVM từ đầu.
 >
 > Nhưng bạn cần hiểu mô hình để:
@@ -1181,7 +1181,7 @@ Trả về class hoặc giá trị hồi quy
 
 Điều quan trọng nhất là:
 
-> [!summary]
+> [!NOTE]
 > Dữ liệu lúc inference phải đi qua **đúng cùng preprocessing pipeline** đã dùng khi huấn luyện.
 
 ---
@@ -1251,7 +1251,7 @@ flowchart TD
 
 # 29. Ghi nhớ cuối cùng
 
-> [!success]
+> [!TIP]
 > SVM có thể được hiểu bằng bốn ý chính:
 >
 > 1. Tìm decision boundary.
@@ -1259,6 +1259,6 @@ flowchart TD
 > 3. Chỉ một số điểm gần ranh giới trở thành support vectors.
 > 4. Dùng kernel để xử lý ranh giới phi tuyến mà không cần tính trực tiếp toàn bộ không gian mới.
 
-> [!quote]
+> [!NOTE]
 > Học SVM không nhất thiết phải tự viết bộ tối ưu.  
 > Điều quan trọng khi làm việc thực tế là hiểu dữ liệu đi qua mô hình như thế nào, các siêu tham số điều khiển hành vi gì, và làm sao đánh giá mô hình có tổng quát hóa tốt hay không.

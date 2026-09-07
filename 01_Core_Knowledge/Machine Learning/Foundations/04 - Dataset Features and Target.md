@@ -5,7 +5,7 @@ status: complete
 ---
 # Dataset, Features và Target
 
-> [!abstract]
+> [!NOTE]
 > Đây là bộ ký hiệu và khái niệm cơ bản để đọc hầu hết tài liệu Machine Learning.
 
 ## 1. Dataset
@@ -39,13 +39,7 @@ Một sample là một đối tượng hoặc quan sát.
 Feature là biến đầu vào model dùng để dự đoán.
 
 $$
-\mathbf{x}^{(i)} =
-\begin{bmatrix}
-x_1^{(i)} \\
-x_2^{(i)} \\
-\vdots \\
-x_d^{(i)}
-\end{bmatrix}
+\mathbf{x}^{(i)} = \begin{bmatrix} x_1^{(i)} \\ x_2^{(i)} \\ \vdots \\ x_d^{(i)} \end{bmatrix}
 $$
 
 
@@ -66,7 +60,7 @@ $$y \in \{0,1,\ldots,K-1\}$$
 
 *Ví dụ:* spam/not spam, fraud/normal.
 
-> [!note] Note
+> [!NOTE] Note
 > `label` thường dùng nhiều trong classification; `target` là cách gọi tổng quát hơn.
 
 ---
@@ -85,12 +79,7 @@ $$X \in \mathbb{R}^{n 	imes d}$$
 ## 6. Target Vector ($\mathbf{y}$)
 
 $$
-\mathbf{y} =
-\begin{bmatrix}
-y^{(1)} \\
-\vdots \\
-y^{(n)}
-\end{bmatrix}
+\mathbf{y} = \begin{bmatrix} y^{(1)} \\ \vdots \\ y^{(n)} \end{bmatrix}
 $$
 
 
@@ -139,7 +128,8 @@ $$
 
 ---
 
-> [!summary] Tóm tắt
+> [!NOTE] Tóm tắt
 > **Supervised Learning cơ bản:**
-> $$X 
-\rightarrow 	{Model} \rightarrow \hat{y}$$
+> $$
+X \rightarrow 	{Model} \rightarrow \hat{y}
+$$

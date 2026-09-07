@@ -82,5 +82,5 @@ Model có thể đạt kết quả tốt trên tập test, nhưng sẽ giảm hi
 
 ---
 
-> [!success] Ghi nhớ cốt lõi
+> [!TIP] Ghi nhớ cốt lõi
 > **Generalization** = Học quy luật thực sự, không phải ghi nhớ training data.

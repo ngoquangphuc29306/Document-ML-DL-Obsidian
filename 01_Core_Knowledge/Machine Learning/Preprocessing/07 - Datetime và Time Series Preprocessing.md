@@ -5,7 +5,7 @@ tags: [preprocessing, datetime, time-series]
 
 # Datetime và Time Series Preprocessing
 
-> [!note]
+> [!NOTE]
 > File này tập trung **chuẩn hóa dữ liệu thời gian**. Lag, rolling và domain time features nên đặt ở Feature Engineering.
 
 ## 1. Parse Datetime
@@ -63,5 +63,5 @@ Later → Validation
 Future → Test
 ```
 
-> [!important]
+> [!IMPORTANT]
 > Vấn đề của K-Fold thông thường không chỉ là shuffle; chính là nó có thể làm training chứa quan sát xảy ra **sau** validation.

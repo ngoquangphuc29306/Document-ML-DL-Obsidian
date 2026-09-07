@@ -166,7 +166,7 @@ $$
 
 Trong nhiều trường hợp, phần tính khoảng cách $\mathcal{O}(ND)$ là thành phần chi phối.
 
-> [!note]
+> [!NOTE]
 > Công thức $\mathcal{O}(DN^2)$ không phải là độ phức tạp của một lần truy vấn KNN.  
 > Nó chỉ có thể xuất hiện nếu tính khoảng cách giữa mọi cặp mẫu trong toàn bộ tập dữ liệu.
 
@@ -251,7 +251,7 @@ Ball Tree thường linh hoạt hơn K-D Tree đối với:
 | K-D Tree | Khoảng $\mathcal{O}(ND\log N)$ | Tốt nhất gần $\mathcal{O}(D\log N)$, xấu nhất $\mathcal{O}(ND)$ | Số chiều thấp |
 | Ball Tree | Khoảng $\mathcal{O}(ND\log N)$ | Phụ thuộc dữ liệu, xấu nhất $\mathcal{O}(ND)$ | Số chiều trung bình, dữ liệu có cấu trúc cụm |
 
-> [!important]
+> [!IMPORTANT]
 > Không có cấu trúc tìm kiếm nào luôn nhanh nhất.  
 > Khi số chiều tăng cao, cả K-D Tree và Ball Tree đều có thể mất lợi thế do hiện tượng **curse of dimensionality**.
 

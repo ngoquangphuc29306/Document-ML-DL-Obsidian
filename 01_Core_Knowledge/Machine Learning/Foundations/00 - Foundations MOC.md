@@ -7,7 +7,7 @@ status: complete
 
 # Foundations — Additions MOC
 
-> [!abstract]
+> [!NOTE]
 > Bộ note này bổ sung các khái niệm nền tảng còn thiếu và viết lại đúng phần **Parametric vs Non-parametric Models**.
 
 ## Các note

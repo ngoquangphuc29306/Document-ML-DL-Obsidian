@@ -42,7 +42,7 @@ $$\text{Performance} \approx \text{Data Quality} + \text{Feature Quality} + \tex
 * Giao dịch $\rightarrow$ tổng chi tiêu 30 ngày
 * Chuỗi thời gian $\rightarrow$ lag, rolling mean
 
-> [!summary] Tóm tắt
+> [!NOTE] Tóm tắt
 > * **Preprocessing:** Làm dữ liệu dùng được.
 > * **Feature engineering:** Làm dữ liệu giàu thông tin hơn.
 
@@ -86,5 +86,5 @@ Có thể tự học representation, nhưng vẫn phụ thuộc vào:
 * Có ổn định theo thời gian không?
 * Có trùng lặp với feature khác không?
 
-> [!warning] Warning
+> [!WARNING] Warning
 > Nhiều feature hơn không đồng nghĩa mô hình tốt hơn. Feature dư thừa có thể làm tăng overfitting, độ trễ và rủi ro leakage.

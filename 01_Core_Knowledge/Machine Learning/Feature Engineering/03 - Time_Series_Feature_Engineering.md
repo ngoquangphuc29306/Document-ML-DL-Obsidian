@@ -53,7 +53,7 @@ $$\text{RollingMean}_w(t) = \frac{1}{w} \sum_{k=1}^{w} y_{t-k}$$
 * Standard Deviation
 * Sum
 
-> [!danger] Nguy cơ Data Leakage
+> [!CAUTION] Nguy cơ Data Leakage
 > Phải **chỉ dùng dữ liệu trong quá khứ**. Thường cần thực hiện `.shift(1)` trước khi áp dụng hàm `.rolling()` để tránh rò rỉ dữ liệu của thời điểm hiện tại.
 
 **Cách triển khai chuẩn trong pandas:**

@@ -22,7 +22,7 @@ $$
 
 Sau transform, train feature có mean gần 0 và std gần 1.
 
-> [!important]
+> [!IMPORTANT]
 > StandardScaler **không yêu cầu dữ liệu phải Gaussian**.
 
 ### Dùng khi
@@ -62,5 +62,5 @@ Hữu ích cho right-skewed positive data như revenue, views, transaction amoun
 | Right-skewed      | Log / Power transform    |
 | Tree-only         | Thường không cần scaling |
 
-> [!warning]
+> [!WARNING]
 > Chỉ `fit` scaler trên train.

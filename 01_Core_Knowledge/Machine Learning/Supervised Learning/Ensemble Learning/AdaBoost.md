@@ -117,88 +117,43 @@ Trong đó:$$\text{sign}\left(F_M(x)\right) = \begin{cases} +1 & \text{nếu } F
 AdaBoost không chỉ có thể được hiểu theo trực giác là “tăng trọng số cho các mẫu bị phân loại sai”, mà còn có thể được xem như một thuật toán xây dựng mô hình cộng dồn nhằm giảm **exponential loss**.
 Với mô hình cộng dồn:
 $$
-F_m(x)
-=
-\sum_{t=1}^{m}\alpha_t h_t(x),
+F_m(x) = \sum_{t=1}^{m}\alpha_t h_t(x),
 $$
 hàm mất mát mũ trên tập huấn luyện được định nghĩa là:
 $$
-\mathcal{L}(F)
-=
-\sum_{i=1}^{N}
-\exp\left(-y_iF(x_i)\right).
+\mathcal{L}(F) = \sum_{i=1}^{N} \exp\left(-y_iF(x_i)\right).
 $$
 Tại vòng lặp thứ $m$, mô hình được cập nhật theo:
 $$
-F_m(x)
-=
-F_{m-1}(x)
-+
-\alpha_m h_m(x).
+F_m(x) = F_{m-1}(x) + \alpha_m h_m(x).
 $$
 Thay vào exponential loss:
 $$
-\mathcal{L}(F_m)
-=
-\sum_{i=1}^{N}
-\exp
-\left[
--y_i
-\left(
-F_{m-1}(x_i)
-+
-\alpha_m h_m(x_i)
-\right)
-\right].
+\mathcal{L}(F_m) = \sum_{i=1}^{N} \exp \left[ -y_i \left( F_{m-1}(x_i) + \alpha_m h_m(x_i) \right) \right].
 $$
 Tách hàm mũ thành tích:
 $$
-\mathcal{L}(F_m)
-=
-\sum_{i=1}^{N}
-\exp\left(-y_iF_{m-1}(x_i)\right)
-\exp\left(-\alpha_m y_i h_m(x_i)\right).
+\mathcal{L}(F_m) = \sum_{i=1}^{N} \exp\left(-y_iF_{m-1}(x_i)\right) \exp\left(-\alpha_m y_i h_m(x_i)\right).
 $$
 Đặt trọng số của mẫu $i$ tại vòng $m$ tỉ lệ với:
 $$
-w_i^{(m)}
-\propto
-\exp\left(-y_iF_{m-1}(x_i)\right),
+w_i^{(m)} \propto \exp\left(-y_iF_{m-1}(x_i)\right),
 $$
 ta thu được bài toán tối ưu tại vòng $m$:
 $$
-\mathcal{L}(F_m)
-\propto
-\sum_{i=1}^{N}
-w_i^{(m)}
-\exp\left(-\alpha_m y_i h_m(x_i)\right).
+\mathcal{L}(F_m) \propto \sum_{i=1}^{N} w_i^{(m)} \exp\left(-\alpha_m y_i h_m(x_i)\right).
 $$
 Do đó, quy tắc cập nhật trọng số mẫu có dạng:
 $$
-w_i^{(m+1)}
-\propto
-w_i^{(m)}
-\exp\left(-\alpha_m y_i h_m(x_i)\right).
+w_i^{(m+1)} \propto w_i^{(m)} \exp\left(-\alpha_m y_i h_m(x_i)\right).
 $$
 Vì $y_i,h_m(x_i)\in\{-1,+1\}$ nên:
 $$
-y_i h_m(x_i)
-=
-\begin{cases}
-+1, & \text{nếu } h_m(x_i)=y_i,\\
--1, & \text{nếu } h_m(x_i)\neq y_i.
-\end{cases}
+y_i h_m(x_i) = \begin{cases} +1, & \text{nếu } h_m(x_i)=y_i,\\ -1, & \text{nếu } h_m(x_i)\neq y_i. \end{cases}
 $$
 Suy ra:
 $$
-w_i^{(m+1)}
-\propto
-\begin{cases}
-w_i^{(m)}e^{-\alpha_m},
-& \text{nếu mẫu được phân loại đúng},\\[4pt]
-w_i^{(m)}e^{+\alpha_m},
-& \text{nếu mẫu bị phân loại sai}.
-\end{cases}
+w_i^{(m+1)} \propto \begin{cases} w_i^{(m)}e^{-\alpha_m}, & \text{nếu mẫu được phân loại đúng},\\[4pt] w_i^{(m)}e^{+\alpha_m}, & \text{nếu mẫu bị phân loại sai}. \end{cases}
 $$
 Như vậy, quy tắc tăng trọng số cho mẫu sai và giảm trọng số cho mẫu đúng xuất hiện trực tiếp từ việc tối ưu exponential loss.
 
@@ -208,22 +163,11 @@ Như vậy, quy tắc tăng trọng số cho mẫu sai và giảm trọng số c
 Sau khi chọn được weak classifier $h_m$, ta cần tìm hệ số $\alpha_m$ sao cho hàm mất mát tại vòng $m$ là nhỏ nhất.
 Xét hàm:
 $$
-J(\alpha)
-=
-\sum_{i=1}^{N}
-w_i^{(m)}
-\exp\left(-\alpha y_i h_m(x_i)\right).
+J(\alpha) = \sum_{i=1}^{N} w_i^{(m)} \exp\left(-\alpha y_i h_m(x_i)\right).
 $$
 Gọi weighted error của $h_m$ là:
 $$
-\varepsilon_m
-=
-\sum_{i=1}^{N}
-w_i^{(m)}
-\mathbb{I}
-\left\{
-h_m(x_i)\neq y_i
-\right\}.
+\varepsilon_m = \sum_{i=1}^{N} w_i^{(m)} \mathbb{I} \left\{ h_m(x_i)\neq y_i \right\}.
 $$
 Vì các trọng số đã được chuẩn hóa:
 $$
@@ -243,20 +187,12 @@ y_i h_m(x_i)=-1.
 $$
 Do đó, ta có thể viết:
 $$
-J(\alpha)
-=
-(1-\varepsilon_m)e^{-\alpha}
-+
-\varepsilon_m e^{\alpha}.
+J(\alpha) = (1-\varepsilon_m)e^{-\alpha} + \varepsilon_m e^{\alpha}.
 $$
 Lấy đạo hàm theo $\alpha$:
 
 $$
-J'(\alpha)
-=
--(1-\varepsilon_m)e^{-\alpha}
-+
-\varepsilon_m e^{\alpha}.
+J'(\alpha) = -(1-\varepsilon_m)e^{-\alpha} + \varepsilon_m e^{\alpha}.
 $$
 
 Để tìm giá trị cực tiểu, cho:
@@ -265,53 +201,30 @@ J'(\alpha)=0.
 $$
 Khi đó:
 $$
--(1-\varepsilon_m)e^{-\alpha}
-+
-\varepsilon_m e^{\alpha}
-=
-0.
+-(1-\varepsilon_m)e^{-\alpha} + \varepsilon_m e^{\alpha} = 0.
 $$
 Suy ra:
 $$
-\varepsilon_m e^{\alpha}
-=
-(1-\varepsilon_m)e^{-\alpha}.
+\varepsilon_m e^{\alpha} = (1-\varepsilon_m)e^{-\alpha}.
 $$
 Nhân hai vế với $e^{\alpha}$:
 $$
-\varepsilon_m e^{2\alpha}
-=
-1-\varepsilon_m.
+\varepsilon_m e^{2\alpha} = 1-\varepsilon_m.
 $$
 Do đó:
 $$
-e^{2\alpha}
-=
-\frac{1-\varepsilon_m}{\varepsilon_m}.
+e^{2\alpha} = \frac{1-\varepsilon_m}{\varepsilon_m}.
 $$
 Lấy logarit tự nhiên hai vế:
 
 $$
-2\alpha
-=
-\ln
-\left(
-\frac{1-\varepsilon_m}{\varepsilon_m}
-\right).
+2\alpha = \ln \left( \frac{1-\varepsilon_m}{\varepsilon_m} \right).
 $$
 
 Vì vậy:
 
 $$
-\boxed{
-\alpha_m
-=
-\frac{1}{2}
-\ln
-\left(
-\frac{1-\varepsilon_m}{\varepsilon_m}
-\right)
-}.
+\boxed{ \alpha_m = \frac{1}{2} \ln \left( \frac{1-\varepsilon_m}{\varepsilon_m} \right) }.
 $$
 
 Công thức này cho thấy:
@@ -369,13 +282,7 @@ Với phân phối trọng số công bằng này, ta huấn luyện weak learne
 #### Dự đoán tại lá
 Nếu weak regressor là cây hồi quy sử dụng tiêu chí weighted MSE và nhận trực tiếp sample weight, giá trị dự đoán tối ưu tại mỗi vùng lá $R$ là weighted mean của các giá trị mục tiêu trong vùng:
 $$
-\widetilde{y}_{R}^{(w)}
-=
-\frac{
-\sum_{i:x_i\in R} w_i^{(m)}y_i
-}{
-\sum_{i:x_i\in R} w_i^{(m)}
-}.
+\widetilde{y}_{R}^{(w)} = \frac{ \sum_{i:x_i\in R} w_i^{(m)}y_i }{ \sum_{i:x_i\in R} w_i^{(m)} }.
 $$
 Nếu thuật toán được triển khai bằng weighted resampling thay vì truyền trực tiếp sample weight, cây được huấn luyện trên tập dữ liệu đã lấy mẫu lại và giá trị tại lá được tính theo tập dữ liệu lấy mẫu đó.
 ##### (a) **Huấn luyện weak learner**
@@ -390,33 +297,16 @@ Tùy cách triển khai, có thể:
 ##### (b) **Chuẩn hoá lỗi từng mẫu với linear loss:**
 Đặt sai số tuyệt đối của mẫu $i$ tại vòng $m$ là:
 $$
-r_i^{(m)}
-=
-\left|y_i-h_m(x_i)\right|.
+r_i^{(m)} = \left|y_i-h_m(x_i)\right|.
 $$
 Gọi sai số lớn nhất tại vòng $m$ là:
 $$
-R_m
-=
-\max_{1\le j\le N}r_j^{(m)}
-=
-\max_{1\le j\le N}
-\left|y_j-h_m(x_j)\right|.
+R_m = \max_{1\le j\le N}r_j^{(m)} = \max_{1\le j\le N} \left|y_j-h_m(x_j)\right|.
 $$
 
 Nếu $R_m>0$, lỗi chuẩn hóa của mẫu $i$ là:
 $$
-e_i^{(m)}
-=
-\frac{r_i^{(m)}}{R_m}
-=
-\frac{
-\left|y_i-h_m(x_i)\right|
-}{
-\max_{1\le j\le N}
-\left|y_j-h_m(x_j)\right|
-}
-\in[0,1].
+e_i^{(m)} = \frac{r_i^{(m)}}{R_m} = \frac{ \left|y_i-h_m(x_i)\right| }{ \max_{1\le j\le N} \left|y_j-h_m(x_j)\right| } \in[0,1].
 $$
 Trong đó:
 * $e_i$: lỗi đã chuẩn hoá của mẫu $i$ (thuộc $[0, 1]$).
@@ -431,11 +321,7 @@ lưu $h_m$ vào ensemble và dừng boosting sớm.
 Weighted error của weak regressor $h_m$ là trung bình có trọng số của các lỗi chuẩn hóa:
 
 $$
-\varepsilon_m
-=
-\sum_{i=1}^{N}
-w_i^{(m)}e_i^{(m)}
-\in[0,1].
+\varepsilon_m = \sum_{i=1}^{N} w_i^{(m)}e_i^{(m)} \in[0,1].
 $$
 Trong đó:
 - $\varepsilon_m$: lỗi có trọng số của weak regressor tại vòng $m$;
@@ -466,21 +352,11 @@ $$
 $$
 tính:
 $$
-\beta_m
-=
-\frac{\varepsilon_m}{1-\varepsilon_m}
-\in(0,1),
+\beta_m = \frac{\varepsilon_m}{1-\varepsilon_m} \in(0,1),
 $$
 và trọng số đóng góp của weak regressor:
 $$
-\alpha_m
-=
-\ln\left(\frac{1}{\beta_m}\right)
-=
-\ln\left(
-\frac{1-\varepsilon_m}{\varepsilon_m}
-\right)
->0.
+\alpha_m = \ln\left(\frac{1}{\beta_m}\right) = \ln\left( \frac{1-\varepsilon_m}{\varepsilon_m} \right) >0.
 $$
 Trong đó:
 - $\beta_m$: hệ số được sử dụng để cập nhật sample weight;
@@ -492,24 +368,13 @@ Khi $\varepsilon_m$ càng nhỏ thì $\beta_m$ càng nhỏ và $\alpha_m$ càng 
 Sau khi tính được trọng số $\alpha_m$, ta lưu cặp weak regressor và trọng số tương ứng vào danh sách mô hình:
 
 $$
-\mathcal{H}_m
-=
-\bigl(
-(h_1,\alpha_1),
-(h_2,\alpha_2),
-\dots,
-(h_m,\alpha_m)
-\bigr).
+\mathcal{H}_m = \bigl( (h_1,\alpha_1), (h_2,\alpha_2), \dots, (h_m,\alpha_m) \bigr).
 $$
 
 Hoặc có thể biểu diễn thao tác thêm mô hình mới vào cuối danh sách:
 
 $$
-\mathcal{H}_m
-=
-\mathcal{H}_{m-1}
-\mathbin{\|}
-(h_m,\alpha_m),
+\mathcal{H}_m = \mathcal{H}_{m-1} \mathbin{\|} (h_m,\alpha_m),
 $$
 
 trong đó:
@@ -539,52 +404,25 @@ h_1(x), h_2(x), \dots, h_M(x).
 $$
 AdaBoost.R2 không lấy trung bình có trọng số của các dự đoán này. Thay vào đó, dự đoán cuối cùng là **weighted median** (trung vị có trọng số) theo các trọng số $\alpha_m$:
 $$
-\widehat{y}(x)
-=
-\operatorname{wmed}
-\left(
-\{h_m(x)\}_{m=1}^{M};
-\{\alpha_m\}_{m=1}^{M}
-\right).
+\widehat{y}(x) = \operatorname{wmed} \left( \{h_m(x)\}_{m=1}^{M}; \{\alpha_m\}_{m=1}^{M} \right).
 $$
 Để xác định weighted median, trước hết sắp xếp các giá trị dự đoán theo thứ tự tăng dần:
 $$
-h_{(1)}(x)
-\le
-h_{(2)}(x)
-\le
-\dots
-\le
-h_{(M)}(x),
+h_{(1)}(x) \le h_{(2)}(x) \le \dots \le h_{(M)}(x),
 $$
 trong đó $\alpha_{(1)}, \alpha_{(2)}, \dots, \alpha_{(M)}$ là các trọng số tương ứng sau khi sắp xếp.
 Chọn chỉ số nhỏ nhất $k$ sao cho:
 $$
-\sum_{j=1}^{k}\alpha_{(j)}
-\ge
-\frac{1}{2}
-\sum_{j=1}^{M}\alpha_{(j)}.
+\sum_{j=1}^{k}\alpha_{(j)} \ge \frac{1}{2} \sum_{j=1}^{M}\alpha_{(j)}.
 $$
 Khi đó, dự đoán cuối cùng là:
 $$
-\widehat{y}(x)
-=
-h_{(k)}(x).
+\widehat{y}(x) = h_{(k)}(x).
 $$
 Tương đương, weighted median có thể được viết dưới dạng:
 
 $$
-\widehat{y}(x)
-=
-\inf
-\left\{
-y \in \mathbb{R}
-:
-\sum_{m:h_m(x)\le y}\alpha_m
-\ge
-\frac{1}{2}
-\sum_{m=1}^{M}\alpha_m
-\right\}.
+\widehat{y}(x) = \inf \left\{ y \in \mathbb{R} : \sum_{m:h_m(x)\le y}\alpha_m \ge \frac{1}{2} \sum_{m=1}^{M}\alpha_m \right\}.
 $$
 
 Trong đó:

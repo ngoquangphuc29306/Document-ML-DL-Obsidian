@@ -19,7 +19,7 @@ $$\text{Debt-to-Income} = \frac{\text{Debt}}{\text{Income}}$$
 
 $$\text{Area per Room} = \frac{\text{Area}}{\text{Rooms}}$$
 
-> [!warning] Warning
+> [!WARNING] Warning
 > Luôn kiểm tra và xử lý trường hợp mẫu số bằng 0 (division by zero).
 
 ---
@@ -35,7 +35,7 @@ $$x_{\text{interaction}} = x_1 x_2$$
 Chuyển giá trị liên tục thành nhóm:
 * **Age:** `0–17`, `18–24`, `25–34`, `35–49`, `50+`
 
-> [!note] Note
+> [!NOTE] Note
 > Binning giúp mô hình dễ giải thích hơn nhưng sẽ làm mất đi thông tin chi tiết của dữ liệu liên tục.
 
 ---
@@ -76,7 +76,7 @@ $$FE(c) = \frac{\operatorname{count}(c)}{N}$$
 ### Target encoding
 $$TE(c) = E[y \mid c]$$
 
-> [!danger] Rủi ro Leakage Cao
+> [!CAUTION] Rủi ro Leakage Cao
 > Target encoding rất dễ gây **Data Leakage**. 
 > * **Bắt buộc:** Dùng out-of-fold encoding, smoothing và **chỉ fit trên tập train**.
 > 
@@ -109,5 +109,5 @@ Gộp các category hiếm xuất hiện thành nhóm **`Other`** để giảm n
 * **N-grams**
 * **Embeddings**
 
-> [!note] Note
+> [!NOTE] Note
 > Không phải lúc nào cũng nên xóa emoji, dấu câu hoặc chữ viết hoa; chúng có thể chứa tín hiệu cảm xúc (sentiment) rất quan trọng.

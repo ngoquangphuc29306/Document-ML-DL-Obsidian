@@ -71,9 +71,9 @@ Theo dõi:
 
 ## 6. Data drift
 
-$$P_{\text{train}}(X)
-\neq
-P_{\text{production}}(X)$$
+$$
+P_{\text{train}}(X) \neq P_{\text{production}}(X)
+$$
 
 Drift là tín hiệu cần điều tra, không tự động đồng nghĩa model đã hỏng.
 
@@ -117,5 +117,5 @@ Model prediction
 Log features + prediction
 ```
 
-> [!success]
+> [!TIP]
 > Feature production tốt phải đúng, nhanh, ổn định, tái lập và giám sát được.

@@ -130,9 +130,9 @@ $$idf_i = \frac{N}{df_t}$$
 	- N: The total number of documents in the corpus
 	- $df_t$ : The number of documents with term t in them
 	- Using log space:
-$$idf_t = \log \frac{N}{df_t} \quad ; \quad
-idf_t = \log \frac{N}{df_t} + 1 \quad ; \quad
-idf_t = \log \frac{N + 1}{df_t + 1} + 1$$
+$$
+idf_t = \log \frac{N}{df_t} \quad ; \quad idf_t = \log \frac{N}{df_t} + 1 \quad ; \quad idf_t = \log \frac{N + 1}{df_t + 1} + 1
+$$
 - The weighted value $w_{t,d}$ for word t in document d
 $$w_{t,d} = tf_{t,d} \times idf_{t,d} $$
 - IDF weighs down the terms: very common across a corpus and rare terms

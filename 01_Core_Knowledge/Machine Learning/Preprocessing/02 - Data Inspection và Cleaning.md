@@ -25,7 +25,7 @@ Ví dụ `"1000000"` lưu dưới dạng string có thể làm sort, aggregation
 - **Exact duplicate:** toàn bộ dòng giống nhau.
 - **Entity duplicate:** cùng thực thể xuất hiện ngoài mong muốn.
 
-> [!warning]
+> [!WARNING]
 > Không xóa dòng chỉ vì thấy “trùng”. Trong transaction data, một user có nhiều dòng thường là hợp lệ.
 
 ## 4. Giá trị bất hợp lý

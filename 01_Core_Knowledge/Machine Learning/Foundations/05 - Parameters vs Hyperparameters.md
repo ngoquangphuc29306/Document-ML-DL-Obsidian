@@ -68,5 +68,5 @@ Hyperparameters được chọn dựa trên Validation / Cross-Validation (CV).
 
 ---
 
-> [!important]
+> [!IMPORTANT]
 > Hyperparameter không phải “parameter khó hơn”; chúng khác nhau ở **cách được xác định**.

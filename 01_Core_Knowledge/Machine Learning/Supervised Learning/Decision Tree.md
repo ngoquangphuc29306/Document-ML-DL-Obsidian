@@ -198,12 +198,7 @@ Trong Regression Tree, giá trị dự đoán tại một nút hoặc một nút
 Với nút $D_i$ chứa $n_i$ mẫu, giá trị dự đoán tại nút là:
 
 $$
-\widehat{y}_{D_i}
-=
-\overline{y}_{D_i}
-=
-\frac{1}{n_i}
-\sum_{j=1}^{n_i}y_j.
+\widehat{y}_{D_i} = \overline{y}_{D_i} = \frac{1}{n_i} \sum_{j=1}^{n_i}y_j.
 $$
 
 #### Mean Squared Error của một nút
@@ -211,13 +206,7 @@ $$
 **Mean Squared Error (MSE)** đo trung bình bình phương sai lệch giữa target thật và giá trị dự đoán tại nút:
 
 $$
-MSE(D_i)
-=
-\frac{1}{n_i}
-\sum_{j=1}^{n_i}
-\left(
-y_j-\overline{y}_{D_i}
-\right)^2.
+MSE(D_i) = \frac{1}{n_i} \sum_{j=1}^{n_i} \left( y_j-\overline{y}_{D_i} \right)^2.
 $$
 
 #### Sum of Squared Errors của một nút
@@ -225,20 +214,13 @@ $$
 **Sum of Squared Errors (SSE)** là tổng bình phương sai lệch tại nút:
 
 $$
-SSE(D_i)
-=
-\sum_{j=1}^{n_i}
-\left(
-y_j-\overline{y}_{D_i}
-\right)^2.
+SSE(D_i) = \sum_{j=1}^{n_i} \left( y_j-\overline{y}_{D_i} \right)^2.
 $$
 
 Mối liên hệ giữa MSE và SSE là:
 
 $$
-SSE(D_i)
-=
-n_i \cdot MSE(D_i).
+SSE(D_i) = n_i \cdot MSE(D_i).
 $$
 
 Trong đó:
@@ -248,7 +230,7 @@ Trong đó:
 - $\overline{y}_{D_i}$: trung bình target của các mẫu trong nút $D_i$;
 - giá trị dự đoán của nút lá chính là $\overline{y}_{D_i}$.
 
-> [!important]
+> [!IMPORTANT]
 > Trong Regression Tree, nên sử dụng thống nhất thuật ngữ **SSE** hoặc **RSS** cho tổng bình phương phần dư.  
 > Không nên dùng `SSR` vì ký hiệu này trong một số tài liệu được dùng cho Regression Sum of Squares.
 ### 2.2. Quy tắc chọn phép chia tốt nhất
@@ -256,78 +238,46 @@ Trong đó:
 Mục tiêu của Regression Tree là tìm feature và threshold sao cho các target trong từng nút con càng ít phân tán càng tốt.
 Giả sử một phép chia tạo ra hai nút con:
 $$
-D_L
-=
-\{(x_i,y_i):x_i\le s\},
+D_L = \{(x_i,y_i):x_i\le s\},
 $$
 $$
-D_R
-=
-\{(x_i,y_i):x_i>s\}.
+D_R = \{(x_i,y_i):x_i>s\}.
 $$
 
 Có hai cách tương đương để đánh giá một phép chia.
 #### Cách 1: Tổng SSE của các nút con
 $$
-SSE_{\text{split}}
-=
-SSE(D_L)
-+
-SSE(D_R).
+SSE_{\text{split}} = SSE(D_L) + SSE(D_R).
 $$
 Cụ thể:
 $$
-SSE_{\text{split}}
-=
-\sum_{x_i\in D_L}
-\left(
-y_i-\overline{y}_L
-\right)^2
-+
-\sum_{x_i\in D_R}
-\left(
-y_i-\overline{y}_R
-\right)^2.
+SSE_{\text{split}} = \sum_{x_i\in D_L} \left( y_i-\overline{y}_L \right)^2 + \sum_{x_i\in D_R} \left( y_i-\overline{y}_R \right)^2.
 $$
 Trong đó:
 $$
-\overline{y}_L
-=
-\frac{1}{|D_L|}
-\sum_{x_i\in D_L}y_i,
+\overline{y}_L = \frac{1}{|D_L|} \sum_{x_i\in D_L}y_i,
 $$
 $$
-\overline{y}_R
-=
-\frac{1}{|D_R|}
-\sum_{x_i\in D_R}y_i.
+\overline{y}_R = \frac{1}{|D_R|} \sum_{x_i\in D_R}y_i.
 $$
 #### Cách 2: Weighted MSE
 Nếu sử dụng MSE, cần lấy trung bình có trọng số theo số lượng mẫu của từng nút con:
 
 $$
-MSE_{\text{split}}
-=
-\frac{|D_L|}{|D|}
-MSE(D_L)
-+
-\frac{|D_R|}{|D|}
-MSE(D_R).
+MSE_{\text{split}} = \frac{|D_L|}{|D|} MSE(D_L) + \frac{|D_R|}{|D|} MSE(D_R).
 $$
 
 Hai tiêu chí này cho cùng thứ tự lựa chọn phép chia vì:
 $$
-SSE_{\text{split}}
-=
-|D|\cdot MSE_{\text{split}}.
+SSE_{\text{split}} = |D|\cdot MSE_{\text{split}}.
 $$
 
-> [!warning]
+> [!WARNING]
 > Không nên sử dụng:
 >
 > $$
-> MSE(D_L)+MSE(D_R)
-> $$
+> MSE(D_L)+MSE(D_R) >
+$$
 >
 > vì cách cộng này xem hai nút con có mức ảnh hưởng ngang nhau, ngay cả khi số lượng mẫu của chúng rất khác nhau.
 
@@ -337,35 +287,24 @@ $$
 2. **Tạo threshold ứng viên:**  
    Với hai giá trị liên tiếp khác nhau $x_{(j)}<x_{(j+1)}$, tạo threshold:
    $$
-   s_j
-   =
-   \frac{x_{(j)}+x_{(j+1)}}{2}.
-   $$
+s_j = \frac{x_{(j)}+x_{(j+1)}}{2}.
+$$
 3. **Chia dữ liệu:**  
    Với mỗi threshold $s_j$, tạo hai tập:
    $$
-   D_L
-   =
-   \{(x_i,y_i):x_i\le s_j\},
-   $$
+D_L = \{(x_i,y_i):x_i\le s_j\},
 $$
-   D_R
-   =
-   \{(x_i,y_i):x_i>s_j\}.
-   $$
+$$
+D_R = \{(x_i,y_i):x_i>s_j\}.
+$$
 4. **Tính tổng sai số sau phép chia:**
    $$
-   SSE_{\text{split}}(s_j)
-   =
-   SSE(D_L)+SSE(D_R).
-   $$
+SSE_{\text{split}}(s_j) = SSE(D_L)+SSE(D_R).
+$$
 5. **Chọn threshold tốt nhất:**
 $$
-   s^*
-   =
-   \arg\min_{s_j}
-   SSE_{\text{split}}(s_j).
-   $$
+s^* = \arg\min_{s_j} SSE_{\text{split}}(s_j).
+$$
 
 Phép chia có tổng SSE nhỏ nhất được xem là phép chia tốt nhất đối với feature đang xét.
 ## 3. Overfitting and Solution

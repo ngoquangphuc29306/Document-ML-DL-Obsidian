@@ -15,7 +15,7 @@ $$\theta^* = \arg\min_\theta J(\theta)$$
 * **$\theta$:** Các tham số của mô hình (model parameters).
 * **$J(\theta)$:** Hàm mục tiêu (objective function / loss function).
 
-> [!note] Khái niệm cốt lõi
+> [!NOTE] Khái niệm cốt lõi
 > Bài toán tối ưu hóa (Optimization) nhằm tìm ra bộ tham số $\theta^*$ sao cho giá trị của hàm mục tiêu $J(\theta)$ đạt mức nhỏ nhất.
 
 ---
@@ -107,5 +107,5 @@ Quá trình tối ưu hóa thường dừng lại khi đạt một trong các đ
 
 ---
 
-> [!summary] Tóm tắt tư duy cốt lõi
+> [!NOTE] Tóm tắt tư duy cốt lõi
 > $$\text{Objective } J(\theta) \longrightarrow \text{Gradient } \nabla J \longrightarrow \text{Update } \theta \longrightarrow \text{Repeat}$$

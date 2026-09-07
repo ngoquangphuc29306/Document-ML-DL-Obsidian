@@ -50,9 +50,7 @@ $$
 $$
 - Khi $N$ lớn:
 $$
-\left(1-\frac{1}{N}\right)^N
-\approx e^{-1}
-\approx 0.368.
+\left(1-\frac{1}{N}\right)^N \approx e^{-1} \approx 0.368.
 $$
 - Do đó:
 	- khoảng $36.8\%$ số mẫu không xuất hiện trong bootstrap sample;
@@ -171,7 +169,7 @@ plt.show()
 ---
 ## 5. Fill in missing data with Random Forest
 
-> [!warning]
+> [!WARNING]
 > Imputation bằng proximity matrix là một kỹ thuật cổ điển liên quan đến Random Forest, nhưng không phải là hành vi mặc định của mọi implementation.
 >
 > Khi sử dụng thư viện, cần kiểm tra rõ implementation có hỗ trợ proximity matrix và iterative imputation hay không.
@@ -236,21 +234,7 @@ Sau khi cập nhật các giá trị bị thiếu:
 
 Ví dụ điều kiện hội tụ cho numeric feature:
 $$
-\Delta
-=
-\frac{
-\sum_{(i,k)\in\mathcal M}
-\left(
-\widehat x_{ik}^{(t)}
--
-\widehat x_{ik}^{(t-1)}
-\right)^2
-}{
-\sum_{(i,k)\in\mathcal M}
-\left(
-\widehat x_{ik}^{(t-1)}
-\right)^2
-},
+\Delta = \frac{ \sum_{(i,k)\in\mathcal M} \left( \widehat x_{ik}^{(t)} - \widehat x_{ik}^{(t-1)} \right)^2 }{ \sum_{(i,k)\in\mathcal M} \left( \widehat x_{ik}^{(t-1)} \right)^2 },
 $$
 
 trong đó $\mathcal M$ là tập các vị trí ban đầu bị thiếu.

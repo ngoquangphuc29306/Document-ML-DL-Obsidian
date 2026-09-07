@@ -82,6 +82,6 @@ $$\text{Objective} = \sum_{i} L(y_i, \hat{y}_i) + \sum_{k} \Omega(f_k)$$
 
 ---
 
-> [!summary] Summary
+> [!NOTE] Summary
 > * **Loss:** đo lỗi của từng mẫu dữ liệu.
 > * **Objective:** là đại lượng optimizer tối thiểu hóa trên toàn bộ tập dữ liệu, thường gồm **Loss + Regularization**.

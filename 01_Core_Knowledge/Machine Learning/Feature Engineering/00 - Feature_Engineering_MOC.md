@@ -5,7 +5,7 @@ tags: [machine-learning, feature-engineering, moc]
 
 # Feature Engineering — MOC
 
-> [!abstract]
+> [!NOTE]
 > Bộ ghi chú này tập trung vào cách biến dữ liệu thô thành feature có ích, tránh leakage và đưa feature vào pipeline thực tế.
 
 ## Lộ trình
@@ -27,5 +27,5 @@ flowchart LR
     F --> G[Production]
 ```
 
-> [!success]
+> [!TIP]
 > Feature tốt phải có ý nghĩa, không dùng tương lai, tính được khi inference và ổn định trong production.

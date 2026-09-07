@@ -10,7 +10,7 @@ tags:
 
 # Linear Regression: Từ Cơ Bản Đến Nâng Cao
 
-> [!abstract] Tổng quan
+> [!NOTE] Tổng quan
 > **Linear Regression (Hồi quy tuyến tính)** là một thuật toán học máy giám sát (Supervised Learning) thuộc bài toán hồi quy. Mục tiêu của thuật toán là tìm ra một đường thẳng (hoặc siêu mặt phẳng) khớp nhất với dữ liệu để dự đoán một giá trị liên tục ($\hat{y}$) dựa trên các đặc trưng đầu vào ($X$).
 
 ---
@@ -29,7 +29,7 @@ $$\hat{y} = wx + b$$
 ### 1.2. Hồi Quy Tuyến Tính Đa Biến & Vector Hóa (Multivariate & Vectorization)
 Dự đoán đầu ra dựa trên nhiều đặc trưng, được biểu diễn dưới dạng đại số tuyến tính để tối ưu hóa hiệu suất tính toán.
 
-> [!tip] Lý do cần Vector hóa
+> [!TIP] Lý do cần Vector hóa
 > Thay thế các vòng lặp `for` truyền thống bằng phép toán ma trận giúp tận dụng sức mạnh tính toán song song, tăng tốc độ huấn luyện mô hình lên gấp nhiều lần.
 
 Mô hình cho $N$ mẫu dữ liệu:
@@ -52,9 +52,9 @@ Hàm mất mát đo lường mức độ sai lệch giữa dự đoán ($\hat{y}
 *   **Đạo hàm theo $w$:** $\frac{\partial L}{\partial w} = 2x(\hat{y} - y)$
 
 ![Pasted image 20260829144825](../../../05_Assets/Images/Pasted%20image%2020260829144825.png)
-> [!success] Ưu điểm
+> [!TIP] Ưu điểm
 > Đạo hàm mượt mà, hội tụ tốt và dễ tối ưu bằng Gradient Descent. Phạt rất nặng các điểm sai số lớn.
-> [!bug] Nhược điểm
+> [!CAUTION] Nhược điểm
 > Cực kỳ nhạy cảm với dữ liệu nhiễu (outliers). Một outlier có thể kéo lệch toàn bộ đường hồi quy.
 
 ### 2.2. Mean Absolute Error (MAE)
@@ -62,10 +62,10 @@ Hàm mất mát đo lường mức độ sai lệch giữa dự đoán ($\hat{y}
 *   **Công thức (1 mẫu):** $L(\hat{y}, y) = \vert{}\hat{y} - y\vert{}$
 ![Pasted image 20260829144849](../../../05_Assets/Images/Pasted%20image%2020260829144849.png)
 
-> [!success] Ưu điểm
+> [!TIP] Ưu điểm
 > Kháng nhiễu (outliers) cực tốt vì sai số được tính theo tuyến tính, không bị phóng đại bằng phép bình phương.
 
-> [!bug] Nhược điểm
+> [!CAUTION] Nhược điểm
 > Không khả vi (không có đạo hàm) tại điểm sai số bằng $0$. Quá trình hội tụ ở gần điểm cực tiểu khó khăn hơn.
 
 ### 2.3. Huber Loss
@@ -76,7 +76,7 @@ $$L_\delta(\hat{y}, y) = \begin{cases} \frac{1}{2}(\hat{y} - y)^2 & \text{nếu 
 $$\frac{\partial L}{\partial w} = \begin{cases} x(\hat{y} - y) & \text{nếu } \vert{}\hat{y} - y\vert{} \le \delta \\ \delta x \cdot \frac{\hat{y} - y}{\vert{}\hat{y} - y\vert{}} & \text{nếu } \vert{}\hat{y} - y\vert{} > \delta \end{cases}$$
 
 ![Pasted image 20260829145003](../../../05_Assets/Images/Pasted%20image%2020260829145003.png)
-> [!info] Đặc điểm
+> [!NOTE] Đặc điểm
 > Sử dụng hành vi của MSE khi sai số nhỏ (dưới ngưỡng $\delta$) để dễ hội tụ, và sử dụng hành vi của MAE khi sai số lớn (vượt ngưỡng $\delta$) để kháng outliers.
 
 ---
@@ -99,7 +99,7 @@ $\eta$ quyết định độ dài bước nhảy trong không gian tham số.
 
 ![Pasted image 20260829145122](../../../05_Assets/Images/Pasted%20image%2020260829145122.png)
 ### 3.3. So sánh MSE và MAE với Learning Rate cố định
-> [!example] Tại sao MSE hoạt động tốt hơn MAE khi $\eta$ cố định?
+> [!NOTE] Tại sao MSE hoạt động tốt hơn MAE khi $\eta$ cố định?
 > *   **Với MAE:** Đạo hàm luôn có độ lớn hằng số (vd: $1$ hoặc $-1$). Bước nhảy $\eta \nabla L$ sẽ có độ lớn không đổi. Khi tiến sát cực tiểu, mô hình dễ bị nhảy qua lại (dao động) qua điểm tối ưu mà không thể chạm đáy nếu không giảm $\eta$.
 > *   **Với MSE:** Đạo hàm tỉ lệ thuận với sai số ($\nabla L \propto (\hat{y} - y)$). Khi ở xa đáy, sai số lớn $\rightarrow$ bước nhảy lớn (học nhanh). Khi tiến gần đáy, sai số nhỏ lại $\rightarrow$ đạo hàm và bước nhảy tự động thu nhỏ, giúp mô hình "hạ cánh" mượt mà vào điểm cực tiểu.
 
@@ -116,7 +116,7 @@ $\eta$ quyết định độ dài bước nhảy trong không gian tham số.
 ---
 
 ## 5. Tầm Quan Trọng Của Tiền Xử Lý Dữ Liệu (Data Normalization)
-> [!warning] Chú ý
+> [!WARNING] Chú ý
 > Nếu các đặc trưng có thang đo (scale) chênh lệch quá lớn (VD: $x_1$ đếm số phòng từ 1-5, $x_2$ đo diện tích từ 50-200m²), bề mặt không gian của hàm mất mát sẽ bị kéo giãn thành hình elip hẹp.
 > $\rightarrow$ Gradient Descent sẽ dao động mạnh qua lại theo trục ngắn và hội tụ cực kỳ chậm. Việc **Chuẩn hóa (Normalization/Standardization)** đưa dữ liệu về cùng thang đo giúp bề mặt Loss tròn trịa hơn, mô hình hội tụ nhanh chóng và ổn định.
 
@@ -124,7 +124,7 @@ $\eta$ quyết định độ dài bước nhảy trong không gian tham số.
 
 ## 6. Quy Trình Tổng Quát (Pipeline) Xây Dựng Linear Regression (Vector Hóa)
 
-> [!info] Quy ước ký hiệu (Notation Convention)
+> [!NOTE] Quy ước ký hiệu (Notation Convention)
 > *   **$d$**: Số lượng đặc trưng (features).
 > *   **Vô hướng (Scalar):** Chữ cái in nghiêng viết thường (VD: $y, \hat{y}, L, \eta, m, N$).
 > *   **Vector & Ma trận:** Chữ in đậm (VD: $\mathbf{x}, \mathbf{X}, \mathbf{y}, \mathbf{\hat{y}}, \boldsymbol{\theta}, \mathbf{k}$).
@@ -194,7 +194,7 @@ Duyệt qua toàn bộ tập dữ liệu gồm $N$ mẫu trong một lần lặp
 
 ![Pasted image 20260829145414](../../../05_Assets/Images/Pasted%20image%2020260829145414.png)
 
-> [!tip] Ý nghĩa của phép nhân $\mathbf{X}^T \mathbf{k}$
+> [!TIP] Ý nghĩa của phép nhân $\mathbf{X}^T \mathbf{k}$
 > Phép nhân ma trận $\mathbf{X}^T \mathbf{k}$ bản chất là cách viết gộp (vector hóa) của việc lấy **tổng của (sai số $\times$ giá trị đặc trưng)** trên toàn bộ $m$ hoặc $N$ mẫu cho từng trọng số $w$ tương ứng. Nó giúp CPU/GPU tính toán toàn bộ vòng lặp nội tại cùng một lúc bằng một phép `.dot()`[cite: 5, 6].
 
 ## 7. Mẫu Cài Đặt Khung Mã Nguồn (Python / NumPy)
@@ -231,7 +231,7 @@ def train_linear_regression(X, y, epochs=1000, lr=0.01):
 
 ## 8. Triển Khai Bằng Thư Viện Scikit-Learn (sklearn)
 
-> [!info] Ứng dụng thực tế
+> [!NOTE] Ứng dụng thực tế
 > Trong quá trình học thuật, việc tự xây dựng thuật toán bằng `NumPy` giúp bạn nắm vững bản chất toán học của quá trình đạo hàm và cập nhật ma trận. Tuy nhiên, khi làm việc trong các dự án AI thực tế, chúng ta hầu như luôn sử dụng thư viện **Scikit-Learn (`sklearn`)**. 
 > Thư viện này cung cấp các thuật toán đã được tối ưu hóa cực hạn (viết trên nền C/Cython), giúp mã nguồn ngắn gọn, chuẩn mực và tốc độ thực thi vượt trội.
 
@@ -276,7 +276,7 @@ print("Mean Squared Error (MSE):", mse)
 ```
 
 
-> [!tip]
+> [!TIP]
 > SGD Regressor cho Dữ Liệu Khổng Lồ  
 > Hàm `LinearRegression` hoạt động hoàn hảo cho bộ dữ liệu vừa và nhỏ (chạy Batch toàn tập).  
 > Tuy nhiên, nếu ma trận $\mathbf{X}$ của bạn quá lớn (hàng chục triệu dòng, hàng nghìn đặc trưng) khiến RAM máy tính bị tràn khi tải toàn bộ ma trận, bạn nên chuyển sang dùng **`SGDRegressor`**.

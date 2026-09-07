@@ -99,7 +99,7 @@ Giải pháp:
 
 Dùng để giải thích đóng góp feature ở mức global và local.
 
-> [!warning]
+> [!WARNING]
 > Feature importance và SHAP không chứng minh quan hệ nhân quả.
 
 # 4. Ablation study

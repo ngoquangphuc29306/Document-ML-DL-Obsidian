@@ -19,7 +19,7 @@ source:
 
 # XGBoost — Lý thuyết trực quan và cách mô hình hoạt động
 
-> [!abstract] Mục tiêu của ghi chú
+> [!NOTE] Mục tiêu của ghi chú
 > Ghi chú này tập trung vào việc giúp bạn hiểu:
 >
 > - XGBoost đang học điều gì ở mỗi vòng lặp?
@@ -74,7 +74,7 @@ Cập nhật dự đoán
 Tổng hợp tất cả cây
 ```
 
-> [!summary] Ý tưởng cốt lõi
+> [!NOTE] Ý tưởng cốt lõi
 > Mỗi cây mới không dự đoán lại mục tiêu từ đầu.
 >
 > Nó học cách **sửa lỗi của tổng các cây đã có trước đó**.
@@ -111,7 +111,7 @@ Tree 1 → Tree 2 sửa Tree 1 → Tree 3 sửa tổng trước đó → ...
 
 Cây sau cần biết mô hình hiện tại đang sai ở đâu.
 
-> [!important]
+> [!IMPORTANT]
 > Trong XGBoost, thứ tự của cây có ý nghĩa.
 >
 > Bạn không thể đổi vị trí các cây một cách tùy ý như một tập các mô hình hoàn toàn độc lập.
@@ -138,7 +138,7 @@ Trong đó:
 * $\eta$: learning rate
 * $T$: tổng số cây
 
-> [!note]
+> [!NOTE]
 > Mỗi cây chỉ đóng góp một phần vào dự đoán cuối cùng.
 >
 > `learning_rate` kiểm soát mức độ ta tin vào cây mới.
@@ -178,7 +178,7 @@ Trong đó:
 * $\gamma$: chi phí tạo thêm lá hoặc nhánh
 * $\lambda$: regularization trên leaf output
 
-> [!summary]
+> [!NOTE]
 > XGBoost không chỉ hỏi:
 >
 > “Split này làm loss giảm bao nhiêu?”
@@ -619,7 +619,7 @@ $$\log(odds) = \log\left(\frac{\hat{y}}{1-\hat{y}}\right)$$
 **Chuyển $\log(odds)$ về probability ($\hat{y}$):**
 $$\hat{y} = \frac{1}{1+e^{-\log(odds)}}$$
 
-> [!note] Quy tắc Ensemble
+> [!NOTE] Quy tắc Ensemble
 > Trong **binary classification**, các mô hình ensemble sẽ cộng dồn trên raw score ($z$), không phải cộng dồn trên xác suất ($\hat{y}$).
 
 ---
@@ -631,7 +631,7 @@ $$\log(odds)_0 = \log\left(\frac{0.5}{1-0.5}\right) = 0$$
 
 *Lưu ý: Nếu tỷ lệ lớp dương (positive class) khác 0.5, base raw score $z_0$ sẽ khác 0.*
 
-> [!todo] Hình minh họa cần thêm (Trang 51–53 trong PDF)
+> [!NOTE] Hình minh họa cần thêm (Trang 51–53 trong PDF)
 > - [ ] Chuyển probability sang odds
 > - [ ] Chuyển odds sang log-odds
 
@@ -671,7 +671,7 @@ $$G = \sum_i g_i \quad \text{và} \quad H = \sum_i h_i$$
 **Viết chi tiết theo Residual:**
 $$\text{Similarity Score} = \frac{\left( \sum_i (y_i - \hat{y}_i) \right)^2}{\sum_i \hat{y}_i(1-\hat{y}_i) + \lambda}$$
 
-> [!important] Điểm quan trọng
+> [!IMPORTANT] Điểm quan trọng
 > Mẫu số của Classification **không đơn giản là số lượng mẫu**.
 > Nó chính là **tổng Hessian**: 
 > $$\sum_i \hat{y}_i(1-\hat{y}_i)$$
@@ -726,12 +726,12 @@ $$\text{Cover} = 4 \times 0.25 = 1$$
 - Model linh hoạt hơn
 - Có thể overfit nhóm dữ liệu nhỏ
 
-> [!important]
+> [!IMPORTANT]
 > `min_child_weight` không nhất thiết là số mẫu tối thiểu.
 >
 > Nó liên quan đến **tổng Hessian**.
 
-> [!note] Hình minh họa nên thêm
+> [!NOTE] Hình minh họa nên thêm
 > Lấy hình từ **PDF trang 46–50**:
 >
 > - Cover của leaf
@@ -762,7 +762,7 @@ $$\text{LogPrediction} = \log\left(\frac{\text{PreviousProbability}}{1 - \text{P
 Sau đó đổi về probability:
 $$p_{\text{new}} = \frac{1}{1+e^{-\log(odds)_i{\text{new}}}}$$
 
-> [!warning] Warning
+> [!WARNING] Warning
 > Không cộng leaf output trực tiếp vào probability.
 
 ---
@@ -889,7 +889,7 @@ $$w_j^* = -\frac{G_j}{H_j + \lambda}$$
 - Cây đạt `max_depth`
 - Node không đạt `min_child_weight`
 
-> [!important]
+> [!IMPORTANT]
 > Early stopping giúp chọn số boosting rounds dựa trên validation data thay vì đoán trước.
 
 ---

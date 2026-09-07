@@ -24,7 +24,7 @@ $$f_\theta(x)$$
 với:
 $$\theta = (\theta_1, \ldots, \theta_p)$$
 
-> [!note] Đặc điểm cốt lõi
+> [!NOTE] Đặc điểm cốt lõi
 > Nếu dạng mô hình (model form) cố định, số lượng parameter ($p$) **không tăng** chỉ vì có thêm các mẫu dữ liệu huấn luyện (training samples).
 
 ### Ví dụ: Linear Regression
@@ -88,7 +88,7 @@ $$f(x) = \sum_{i \in SV} \alpha_i y_i K(x_i, x) + b$$
 | **Interpretability** | Dễ giải thích hơn | Khó giải thích hơn |
 | **Memory / Compute** | Thấp hơn | Có thể rất cao khi dữ liệu lớn |
 
-> [!warning] Lưu ý
+> [!WARNING] Lưu ý
 > Bảng so sánh trên mô tả xu hướng tổng quát, không phải là luật tuyệt đối trong mọi tình huống.
 
 ---
@@ -150,6 +150,6 @@ $$\text{Non-parametric} \neq \text{Lazy Learning}$$
 
 ---
 
-> [!success] Ghi nhớ cốt lõi
+> [!TIP] Ghi nhớ cốt lõi
 > * **Parametric:** Độ phức tạp được mô tả bởi một bộ parameters hữu hạn cố định.
 > * **Non-parametric:** Độ phức tạp có thể tăng cùng dữ liệu và linh hoạt hơn về dạng hàm (functional form).
